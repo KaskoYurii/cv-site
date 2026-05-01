@@ -11,7 +11,7 @@ export function HeroSection() {
           Front-End Developer
         </p>
 
-        <h1 className="mt-5 animate-[hero-fade_600ms_ease-out_140ms_both] text-5xl font-semibold leading-tight text-balance text-white sm:text-7xl">
+        <h1 className="mt-5 animate-[hero-fade_600ms_ease-out_140ms_both] text-4xl font-semibold leading-tight text-balance text-white sm:text-7xl">
           Yurii Kasko
         </h1>
 
@@ -22,20 +22,19 @@ export function HeroSection() {
         </p>
 
         <p className="mt-6 animate-[hero-fade_600ms_ease-out_260ms_both] text-sm leading-7 text-slate-400">
-          4+ years experience with Vue 2/3, TypeScript, Pinia, Vuex, Vuetify, Quasar, Vitest,
-          Chart.js, and AmCharts.
+          4+ years of experience building scalable, high-performance web applications.
         </p>
 
         <div className="mt-8 flex animate-[hero-fade_600ms_ease-out_320ms_both] flex-col gap-3 text-sm text-slate-400 sm:flex-row sm:flex-wrap sm:items-center">
           <span>Ukraine</span>
           <a
-            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400"
+            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
             href="mailto:hellokasko@gmail.com"
           >
             hellokasko@gmail.com
           </a>
           <a
-            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400"
+            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
             href="https://t.me/whoisyurii"
             rel="noreferrer"
             target="_blank"
@@ -43,7 +42,7 @@ export function HeroSection() {
             @whoisyurii
           </a>
           <a
-            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400"
+            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
             href="#linkedin"
           >
             Linkedin
@@ -53,15 +52,9 @@ export function HeroSection() {
         <div className="mt-10 flex animate-[hero-fade_600ms_ease-out_380ms_both] flex-col gap-3 sm:flex-row">
           <a
             href="/CV-Yurii_kasko.pdf"
-            className="inline-flex h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-semibold text-black shadow-lg shadow-white/10 transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:bg-orange-100 hover:shadow-orange-400/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400 active:translate-y-0"
+            className="inline-flex h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-semibold text-black shadow-lg shadow-white/10 transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:bg-orange-100 hover:shadow-orange-400/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black active:translate-y-0"
           >
             Load CV
-          </a>
-          <a
-            href="#examples"
-            className="inline-flex h-12 items-center justify-center rounded-md border border-white/15 px-6 text-sm font-semibold text-white transition-[background-color,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-orange-400/50 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange-400 active:translate-y-0"
-          >
-            View examples
           </a>
         </div>
       </div>

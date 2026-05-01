@@ -4,6 +4,8 @@ import { App } from './app/App'
 import './styles/global.css'
 import './styles/animations.css'
 import './styles/hero.css'
+import './styles/preloader.css'
+import './styles/tech-stack.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

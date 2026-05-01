@@ -116,7 +116,7 @@ export function GitHubActivity() {
   }, [])
 
   return (
-    <section id="examples" className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32">
+    <section className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32">
       <p className="text-sm font-semibold uppercase tracking-wider text-orange-400">
         GitHub activity
       </p>
@@ -147,7 +147,7 @@ export function GitHubActivity() {
         </div>
 
         <div className="mt-8 overflow-x-auto pb-2">
-          <div className="min-w-[880px]">
+          <div className="min-w-220">
           <div
             className="grid gap-1 text-xs uppercase tracking-wider text-slate-600"
             style={{ gridTemplateColumns: `repeat(${Math.max(weeks.length, 53)}, 12px)` }}

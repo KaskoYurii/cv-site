@@ -3,6 +3,20 @@ import { useRevealOnScroll } from '@/hooks/useRevealOnScroll'
 
 const experiences = [
   {
+    company: 'Freelance',
+    location: 'Ukraine',
+    period: 'Apr 2025 - Present',
+    role: 'Front-End Developer',
+    summary: [
+      'Created a full-cycle admin platform for an auto service to manage the complete car repair workflow.',
+      'Built flows for repair intake, service tracking, customer records, work statuses, and operational admin tasks.',
+      'Managed backend implementation with AI-driven development tools to support the platform end to end.',
+      'Added Google integration and CI/CD workflow for smoother delivery and operations.',
+      'Designed reusable UI patterns for forms, tables, and dashboard views to keep daily work fast and consistent.',
+      'Delivered frontend architecture and implementation independently, from initial structure to production-ready screens.',
+    ],
+  },
+  {
     company: 'Quardex',
     location: 'Ukraine',
     period: 'Jul 2021 - Apr 2025',
@@ -30,7 +44,7 @@ const experiences = [
     company: 'NDA Startup',
     location: 'Ukraine',
     period: 'Jun 2025 - Apr 2026',
-    role: 'Front-End Developer',
+    role: 'Front-End Developer, part-time',
     summary: [
       'Built the frontend from scratch, including architecture and component system.',
       'Developed custom form components and validation logic.',

@@ -1,7 +1,9 @@
 import { AnimatedBackground } from '@/components/AnimatedBackground'
 import { GitHubActivity } from '@/components/GitHubActivity'
 import { HeroSection } from '@/components/HeroSection'
+import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
+import { TechStack } from '@/components/TechStack'
 import { WorkExperience } from '@/components/WorkExperience'
 
 export function HomePage() {
@@ -14,8 +16,10 @@ export function HomePage() {
       >
         <AnimatedBackground />
         <HeroSection />
+        <TechStack />
         <WorkExperience />
         <GitHubActivity />
+        <SiteFooter />
       </main>
     </>
   )

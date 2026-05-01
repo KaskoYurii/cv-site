@@ -8,8 +8,8 @@ function createStars(width: number, height: number): Star[] {
   return Array.from({ length: STAR_COUNT }, () => ({
     x: Math.random() * width,
     y: Math.random() * height,
-    radius: Math.random() * 1.15 + 0.25,
-    alpha: Math.random() * 0.32 + 0.08,
+    radius: Math.random() * 1.35 + 0.4,
+    alpha: Math.random() * 0.42 + 0.14,
     phase: Math.random() * Math.PI * 2,
   }))
 }
@@ -73,7 +73,7 @@ function drawStarField(state: BackgroundState, time: number) {
       continue
     }
 
-    context.fillStyle = `rgba(255, 226, 198, ${alpha * 0.82})`
+    context.fillStyle = `rgba(255, 230, 205, ${alpha * 0.96})`
     context.beginPath()
     context.arc(x, y, star.radius, 0, Math.PI * 2)
     context.fill()
@@ -154,4 +154,3 @@ export function startAnimatedBackground(canvas: HTMLCanvasElement) {
     window.removeEventListener('pointermove', handlePointerMove)
   }
 }
-

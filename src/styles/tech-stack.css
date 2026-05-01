@@ -1,0 +1,61 @@
+.tech-stack__item {
+  animation: tech-stack-float 3600ms ease-in-out infinite;
+}
+
+.tech-stack__item:nth-child(2n) {
+  animation-delay: -900ms;
+}
+
+.tech-stack__item:nth-child(3n) {
+  animation-delay: -1800ms;
+}
+
+.tech-stack__mark {
+  filter: drop-shadow(0 0 12px color-mix(in oklab, var(--logo-color) 24%, transparent));
+}
+
+.tech-stack-mobile {
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.tech-stack-mobile__track {
+  animation: tech-stack-mobile-left 26s linear infinite;
+}
+
+.tech-stack-mobile__track--reverse {
+  animation-name: tech-stack-mobile-right;
+}
+
+@keyframes tech-stack-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes tech-stack-mobile-left {
+  to {
+    transform: translateX(calc(-50% - 8px));
+  }
+}
+
+@keyframes tech-stack-mobile-right {
+  from {
+    transform: translateX(calc(-50% - 8px));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-stack__item,
+  .tech-stack-mobile__track {
+    animation: none;
+  }
+}

@@ -1,7 +1,7 @@
 const consoleLines = [
-  { prompt: 'build', value: 'dashboards that stay fast' },
-  { prompt: 'ship', value: 'Vue apps from idea to production' },
-  { prompt: 'improve', value: 'architecture, testing, UI quality' },
+  { prompt: 'create', value: 'interfaces that feel clear and reliable' },
+  { prompt: 'connect', value: 'frontend, integrations, and backend workflows' },
+  { prompt: 'ship', value: 'production-ready features with clean structure' },
 ]
 
 export function HeroConsolePreview() {
@@ -43,4 +43,3 @@ export function HeroConsolePreview() {
     </aside>
   )
 }
-

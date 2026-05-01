@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Yurii Kasko favicon">
+  <rect width="64" height="64" rx="14" fill="#030303" />
+  <circle cx="44" cy="20" r="13" fill="#f97316" opacity="0.18" />
+  <path
+    fill="none"
+    stroke="#f97316"
+    stroke-linecap="round"
+    stroke-width="4"
+    d="M14 18l9 15m9-15L23 33m0 0v13m15-28v28m0-13l13-15m-13 15l14 13"
+  />
+</svg>

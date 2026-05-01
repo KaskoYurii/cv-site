@@ -3,8 +3,8 @@ import { useActiveSection } from '@/hooks/useActiveSection'
 
 const menuItems = [
   { id: 'about', label: 'About', href: '#about' },
+  { id: 'stack', label: 'Stack', href: '#stack' },
   { id: 'experience', label: 'Experience', href: '#experience' },
-  { id: 'examples', label: 'Examples', href: '#examples' },
 ]
 
 const cvHref = '/CV-Yurii_kasko.pdf'
@@ -20,7 +20,7 @@ export function SiteHeader() {
           href="/"
           className="group inline-flex items-center gap-3 rounded-md text-lg font-bold tracking-wide text-white outline-none transition duration-300 hover:text-orange-200 focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
         >
-          <span className="grid size-9 place-items-center rounded-md border border-white/10 bg-white/[0.06] text-sm transition duration-300 group-hover:border-orange-400/50 group-hover:bg-orange-500/10">
+          <span className="grid size-9 place-items-center rounded-md border border-white/10 bg-white/6 text-sm transition duration-300 group-hover:border-orange-400/50 group-hover:bg-orange-500/10">
             YK
           </span>
           <span>Y.Kasko</span>
