@@ -1,14 +1,22 @@
+import { AnimatedBackground } from '@/components/AnimatedBackground'
+import { GitHubActivity } from '@/components/GitHubActivity'
+import { HeroSection } from '@/components/HeroSection'
+import { SiteHeader } from '@/components/SiteHeader'
+import { WorkExperience } from '@/components/WorkExperience'
+
 export function HomePage() {
   return (
-    <main className="root-page">
-      <section className="intro">
-        <p className="eyebrow">CV Site</p>
-        <h1>Root page ready.</h1>
-        <p>
-          This is the starting point for the new CV site. Sections and content can be added next.
-        </p>
-      </section>
-    </main>
+    <>
+      <SiteHeader />
+      <main
+        id="main-content"
+        className="relative isolate min-h-screen overflow-x-hidden bg-black px-6 text-white"
+      >
+        <AnimatedBackground />
+        <HeroSection />
+        <WorkExperience />
+        <GitHubActivity />
+      </main>
+    </>
   )
 }
-

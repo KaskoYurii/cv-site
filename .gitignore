@@ -19,12 +19,19 @@ pnpm-debug.log*
 # Coverage and cache
 coverage
 .vite
+.playwright-mcp
 
 # Editor and OS files
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
 .DS_Store
+
+# Local screenshots and test artifacts
+*.png
+*.jpg
+*.jpeg
+*.webp
 
 # Local Codex/agent workspace files unrelated to the CV site
 skills
