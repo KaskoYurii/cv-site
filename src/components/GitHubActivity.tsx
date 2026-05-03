@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import type {
   ContributionDay,
   GitHubContribution,
@@ -86,6 +87,7 @@ async function loadContributions() {
 }
 
 export function GitHubActivity() {
+  const { t } = useTranslation()
   const [contributions, setContributions] = useState<GitHubContribution[]>([])
   const [total, setTotal] = useState<number | null>(null)
   const [hasError, setHasError] = useState(false)
@@ -118,7 +120,7 @@ export function GitHubActivity() {
   return (
     <section className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32">
       <p className="text-sm font-semibold uppercase tracking-wider text-orange-400">
-        GitHub activity
+        {t('github.title')}
       </p>
 
       <div className="mt-8 overflow-hidden border-y border-orange-400/20 bg-black/45 py-6 backdrop-blur-sm">
@@ -128,12 +130,12 @@ export function GitHubActivity() {
               {total === null ? '...' : total.toLocaleString()}
             </p>
             <p className="mt-1 text-sm uppercase tracking-wider text-slate-500">
-              contributions in the last year
+              {t('github.lastYear')}
             </p>
           </div>
 
           <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-slate-500">
-            <span>Quiet</span>
+            <span>{t('github.quiet')}</span>
             {levelColors.map((color, index) => (
               <span
                 key={color}
@@ -142,7 +144,7 @@ export function GitHubActivity() {
                 aria-label={`Activity level ${index}`}
               />
             ))}
-            <span>Active</span>
+            <span>{t('github.active')}</span>
           </div>
         </div>
 
@@ -179,7 +181,7 @@ export function GitHubActivity() {
         </div>
 
         {hasError ? (
-          <p className="mt-4 text-sm text-slate-500">Contribution graph is temporarily unavailable.</p>
+          <p className="mt-4 text-sm text-slate-500">{t('github.error')}</p>
         ) : null}
       </div>
     </section>

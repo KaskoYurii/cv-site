@@ -1,10 +1,9 @@
-const consoleLines = [
-  { prompt: 'create', value: 'interfaces that feel clear and reliable' },
-  { prompt: 'connect', value: 'frontend, integrations, and backend workflows' },
-  { prompt: 'ship', value: 'production-ready features with clean structure' },
-]
+import { useTranslation } from 'react-i18next'
 
 export function HeroConsolePreview() {
+  const { t } = useTranslation()
+  const consoleLines = t('console.lines', { returnObjects: true }) as { prompt: string; value: string }[]
+
   return (
     <aside
       className="relative mb-16 animate-[hero-fade_700ms_ease-out_460ms_both] lg:mb-0"

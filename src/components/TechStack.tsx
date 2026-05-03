@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll'
 import { techLogos } from '@/lib/techStack'
 
@@ -9,6 +10,7 @@ const mobileLogoRows = [
 ]
 
 export function TechStack() {
+  const { t } = useTranslation()
   const sectionRef = useRevealOnScroll<HTMLElement>()
 
   return (
@@ -18,7 +20,7 @@ export function TechStack() {
       className="relative z-10 mx-auto max-w-6xl scroll-mt-24 py-20 sm:py-28"
     >
       <div data-reveal className="reveal-up">
-        <p className="text-sm font-semibold uppercase tracking-wider text-orange-400">Tech stack</p>
+        <p className="text-sm font-semibold uppercase tracking-wider text-orange-400">{t('stack.title')}</p>
 
         <div className="tech-stack-mobile mt-8 space-y-2 overflow-hidden sm:hidden">
           {mobileLogoRows.map((row, rowIndex) => (

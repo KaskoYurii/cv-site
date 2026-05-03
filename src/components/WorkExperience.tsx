@@ -1,65 +1,45 @@
 import type { CSSProperties } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll'
-
-const experiences = [
-  {
-    company: 'Freelance',
-    location: 'Ukraine',
-    period: 'Apr 2025 - Present',
-    role: 'Front-End Developer',
-    summary: [
-      'Created a full-cycle admin platform for an auto service to manage the complete car repair workflow.',
-      'Built flows for repair intake, service tracking, customer records, work statuses, and operational admin tasks.',
-      'Managed backend implementation with AI-driven development tools to support the platform end to end.',
-      'Added Google integration and CI/CD workflow for smoother delivery and operations.',
-      'Designed reusable UI patterns for forms, tables, and dashboard views to keep daily work fast and consistent.',
-      'Delivered frontend architecture and implementation independently, from initial structure to production-ready screens.',
-    ],
-  },
-  {
-    company: 'Quardex',
-    location: 'Ukraine',
-    period: 'Jul 2021 - Apr 2025',
-    role: 'Front-End Developer',
-    summary: [
-      'Designed and maintained scalable frontend architecture for dashboard systems.',
-      'Built a reusable component system used across multiple modules.',
-      'Integrated Chart.js and AmCharts for data visualization.',
-      'Improved UI performance, responsiveness, and review quality across key pages.',
-    ],
-  },
-  {
-    company: 'NSOC360',
-    location: 'Netherlands',
-    period: 'Sep 2021 - Apr 2025',
-    role: 'Front-End Developer, contract via Quardex',
-    summary: [
-      'Developed UI for a monitoring and analytics platform.',
-      'Worked with Vue 2 and Vue 3 in a hybrid architecture.',
-      'Implemented and optimized state management with Vuex and Pinia.',
-      'Collaborated with cross-functional teams in an agile environment.',
-    ],
-  },
-  {
-    company: 'NDA Startup',
-    location: 'Ukraine',
-    period: 'Jun 2025 - Apr 2026',
-    role: 'Front-End Developer, part-time',
-    summary: [
-      'Built the frontend from scratch, including architecture and component system.',
-      'Developed custom form components and validation logic.',
-      'Worked closely with the product team to define UI and UX.',
-      'Delivered a production-ready frontend independently.',
-    ],
-  },
-]
 
 type RevealStyle = CSSProperties & {
   '--reveal-delay': string
 }
 
 export function WorkExperience() {
+  const { t } = useTranslation()
   const sectionRef = useRevealOnScroll<HTMLElement>()
+
+  const experiences = [
+    {
+      company: 'Freelance',
+      location: t('hero.country'),
+      period: 'Apr 2025 - Present',
+      role: t('experience.roles.freelance'),
+      summary: t('experience.summaries.freelance', { returnObjects: true }) as string[],
+    },
+    {
+      company: 'Quardex',
+      location: t('hero.country'),
+      period: 'Jul 2021 - Apr 2025',
+      role: t('experience.roles.quardex'),
+      summary: t('experience.summaries.quardex', { returnObjects: true }) as string[],
+    },
+    {
+      company: 'NSOC360',
+      location: 'Netherlands',
+      period: 'Sep 2021 - Apr 2025',
+      role: t('experience.roles.nsoc360'),
+      summary: t('experience.summaries.nsoc360', { returnObjects: true }) as string[],
+    },
+    {
+      company: 'NDA Startup',
+      location: t('hero.country'),
+      period: 'Jun 2025 - Apr 2026',
+      role: t('experience.roles.nda'),
+      summary: t('experience.summaries.nda', { returnObjects: true }) as string[],
+    },
+  ]
 
   return (
     <section
@@ -71,7 +51,7 @@ export function WorkExperience() {
         className="reveal-up text-sm font-semibold uppercase tracking-wider text-orange-400"
         data-reveal
       >
-        Work experience
+        {t('experience.title')}
       </p>
 
       <div className="mt-8 space-y-5">

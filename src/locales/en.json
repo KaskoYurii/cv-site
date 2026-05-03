@@ -1,0 +1,74 @@
+{
+  "header": {
+    "about": "About",
+    "stack": "Stack",
+    "experience": "Experience",
+    "loadCV": "Load CV",
+    "toggleMenu": "Toggle menu"
+  },
+  "hero": {
+    "role": "Front-End Developer",
+    "description": "I create fast, reliable interfaces for complex web products. Most of my work is around Vue.js, dashboards, reusable components, and frontend architecture that can grow without becoming hard to maintain.",
+    "experience": "4+ years of experience building scalable, high-performance web applications.",
+    "country": "Ukraine",
+    "loadCV": "Load CV"
+  },
+  "stack": {
+    "title": "Tech stack"
+  },
+  "experience": {
+    "title": "Work experience",
+    "roles": {
+      "freelance": "Front-End Developer",
+      "quardex": "Front-End Developer",
+      "nsoc360": "Front-End Developer, contract via Quardex",
+      "nda": "Front-End Developer, part-time"
+    },
+    "summaries": {
+      "freelance": [
+        "Created a full-cycle admin platform for an auto service to manage the complete car repair workflow.",
+        "Built flows for repair intake, service tracking, customer records, work statuses, and operational admin tasks.",
+        "Managed backend implementation with AI-driven development tools to support the platform end to end.",
+        "Added Google integration and CI/CD workflow for smoother delivery and operations.",
+        "Designed reusable UI patterns for forms, tables, and dashboard views to keep daily work fast and consistent.",
+        "Delivered frontend architecture and implementation independently, from initial structure to production-ready screens."
+      ],
+      "quardex": [
+        "Designed and maintained scalable frontend architecture for dashboard systems.",
+        "Built a reusable component system used across multiple modules.",
+        "Integrated Chart.js and AmCharts for data visualization.",
+        "Improved UI performance, responsiveness, and review quality across key pages."
+      ],
+      "nsoc360": [
+        "Developed UI for a monitoring and analytics platform.",
+        "Worked with Vue 2 and Vue 3 in a hybrid architecture.",
+        "Implemented and optimized state management with Vuex and Pinia.",
+        "Collaborated with cross-functional teams in an agile environment."
+      ],
+      "nda": [
+        "Built the frontend from scratch, including architecture and component system.",
+        "Developed custom form components and validation logic.",
+        "Worked closely with the product team to define UI and UX.",
+        "Delivered a production-ready frontend independently."
+      ]
+    }
+  },
+  "github": {
+    "title": "GitHub activity",
+    "lastYear": "contributions in the last year",
+    "quiet": "Quiet",
+    "active": "Active",
+    "error": "Contribution graph is temporarily unavailable."
+  },
+  "console": {
+    "lines": [
+      { "prompt": "create", "value": "interfaces that feel clear and reliable" },
+      { "prompt": "connect", "value": "frontend, integrations, and backend workflows" },
+      { "prompt": "ship", "value": "production-ready features with clean structure" }
+    ]
+  },
+  "footer": {
+    "rights": "© {{year}} Yurii Kasko. All rights reserved.",
+    "builtWith": "Built with React, TypeScript, and Tailwind CSS."
+  }
+}
