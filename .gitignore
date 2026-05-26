@@ -32,6 +32,7 @@ coverage
 *.jpg
 *.jpeg
 *.webp
+!public/og-preview.png
 
 # Local Codex/agent workspace files unrelated to the CV site
 skills
