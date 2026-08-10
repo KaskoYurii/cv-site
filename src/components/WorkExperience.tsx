@@ -12,13 +12,6 @@ export function WorkExperience() {
 
   const experiences = [
     {
-      company: 'Freelance',
-      location: t('hero.country'),
-      period: 'Apr 2025 - Present',
-      role: t('experience.roles.freelance'),
-      summary: t('experience.summaries.freelance', { returnObjects: true }) as string[],
-    },
-    {
       company: 'Quardex',
       location: t('hero.country'),
       period: 'Jul 2021 - Apr 2025',
@@ -38,6 +31,13 @@ export function WorkExperience() {
       period: 'Jun 2025 - Apr 2026',
       role: t('experience.roles.nda'),
       summary: t('experience.summaries.nda', { returnObjects: true }) as string[],
+    },
+    {
+      company: 'Freelance',
+      location: t('hero.country'),
+      period: 'Apr 2025 - Present',
+      role: t('experience.roles.freelance'),
+      summary: t('experience.summaries.freelance', { returnObjects: true }) as string[],
     },
   ]
 

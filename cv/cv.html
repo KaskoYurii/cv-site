@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yurii Kasko — CV</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #0f172a;
+        background: #fff;
+        font-size: 9.5pt;
+        line-height: 1.35;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 14mm 15mm 12mm;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 2.5px solid #f97316;
+        padding-bottom: 10px;
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-size: 22pt;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+
+      .role {
+        margin-top: 4px;
+        color: #ea580c;
+        font-size: 11pt;
+        font-weight: 600;
+      }
+
+      .contacts {
+        text-align: right;
+        font-size: 8.5pt;
+        color: #334155;
+        line-height: 1.55;
+      }
+
+      .contacts a {
+        color: #334155;
+        text-decoration: none;
+      }
+
+      h2 {
+        font-size: 9pt;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #ea580c;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 3px;
+        margin: 11px 0 7px;
+      }
+
+      .summary {
+        color: #1e293b;
+        font-size: 9.4pt;
+        line-height: 1.45;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 4px 10px;
+        font-size: 9pt;
+      }
+
+      .skills dt {
+        font-weight: 700;
+        color: #0f172a;
+      }
+
+      .skills dd {
+        color: #334155;
+      }
+
+      .job {
+        margin-bottom: 9px;
+      }
+
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+      }
+
+      .job-title {
+        font-weight: 700;
+        font-size: 10pt;
+      }
+
+      .job-meta {
+        color: #475569;
+        font-size: 8.5pt;
+        margin-top: 1px;
+      }
+
+      .period {
+        white-space: nowrap;
+        font-size: 8.5pt;
+        font-weight: 600;
+        color: #64748b;
+      }
+
+      ul {
+        margin: 4px 0 0 14px;
+      }
+
+      li {
+        margin-bottom: 2px;
+        color: #1e293b;
+      }
+
+      .footer-note {
+        margin-top: 10px;
+        font-size: 8pt;
+        color: #64748b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div>
+          <h1>Yurii Kasko</h1>
+          <p class="role">Front-End Engineer</p>
+        </div>
+        <div class="contacts">
+          <div>Ukraine · Remote</div>
+          <div><a href="mailto:hellokasko@gmail.com">hellokasko@gmail.com</a></div>
+          <div><a href="https://t.me/whoisyurii">t.me/whoisyurii</a></div>
+          <div><a href="https://www.linkedin.com/in/yurii-kasko/">linkedin.com/in/yurii-kasko</a></div>
+          <div><a href="https://kasko-yurii.vercel.app">kasko-yurii.vercel.app</a></div>
+          <div><a href="https://github.com/KaskoYurii">github.com/KaskoYurii</a></div>
+        </div>
+      </header>
+
+      <h2>Summary</h2>
+      <p class="summary">
+        Vue.js front-end engineer with 4+ years building production web products.
+        Strong in Vue 3, TypeScript, Pinia, reusable component systems, and frontend architecture.
+        Experience with independent delivery, Vue 2→3 / Vuex→Pinia migrations, EU remote collaboration,
+        and AI-assisted workflows with a clear production review bar.
+      </p>
+
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Core</dt>
+        <dd>Vue 2/3, TypeScript, JavaScript, Pinia, Vuex, Vite, Vue Router</dd>
+        <dt>UI</dt>
+        <dd>Vuetify, Quasar, Tailwind CSS, Figma, Chart.js, AmCharts</dd>
+        <dt>Quality</dt>
+        <dd>Vitest, Git, Docker, CI/CD, performance, responsive UI</dd>
+        <dt>AI</dt>
+        <dd>Cursor, Claude Code, Codex — daily AI-assisted delivery + code review</dd>
+      </dl>
+
+      <h2>Experience</h2>
+
+      <article class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title">Quardex — Front-End Developer</div>
+            <div class="job-meta">Ukraine</div>
+          </div>
+          <div class="period">Jul 2021 – Apr 2025</div>
+        </div>
+        <ul>
+          <li>Designed and maintained scalable frontend architecture across multi-module product UIs.</li>
+          <li>Built a reusable component system shared across multiple product modules.</li>
+          <li>Integrated Chart.js and AmCharts; improved UI performance, responsiveness, and review quality.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title">NSOC360 — Front-End Developer (contract via Quardex)</div>
+            <div class="job-meta">Netherlands · Remote</div>
+          </div>
+          <div class="period">Sep 2021 – Apr 2025</div>
+        </div>
+        <ul>
+          <li>Developed UI for a monitoring and analytics product used by an EU client.</li>
+          <li>Worked in a Vue 2/3 hybrid architecture and contributed to migration paths.</li>
+          <li>Implemented and optimized state management with Vuex and Pinia in an agile remote team.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title">NDA Startup — Front-End Developer, part-time</div>
+            <div class="job-meta">Ukraine</div>
+          </div>
+          <div class="period">Jun 2025 – Apr 2026</div>
+        </div>
+        <ul>
+          <li>Built the frontend from scratch, including architecture and a reusable component system.</li>
+          <li>Developed custom forms/validation and delivered a production-ready UI independently.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <div>
+            <div class="job-title">Freelance — Front-End Developer</div>
+            <div class="job-meta">Ukraine</div>
+          </div>
+          <div class="period">Apr 2025 – Present</div>
+        </div>
+        <ul>
+          <li>Built a full-cycle admin platform for an auto service covering the complete repair workflow.</li>
+          <li>Delivered API layer with AI-assisted development while owning production review quality.</li>
+          <li>Added Google integration and CI/CD; owned FE architecture from structure to production.</li>
+        </ul>
+      </article>
+
+      <p class="footer-note">
+        Portfolio: kasko-yurii.vercel.app · Open to remote Vue.js / TypeScript roles and contracts.
+      </p>
+    </div>
+  </body>
+</html>

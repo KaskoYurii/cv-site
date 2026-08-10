@@ -7,20 +7,20 @@ export const techLogos: TechLogo[] = [
     color: '#41b883',
   },
   {
+    name: 'TypeScript',
+    iconUrl:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+    color: '#3178c6',
+  },
+  {
     name: 'Pinia',
     iconUrl: 'https://cdn.simpleicons.org/pinia/ffd859',
     color: '#ffd859',
   },
   {
-    name: 'VS Code',
-    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
-    color: '#24a4ff',
-  },
-  {
-    name: 'TypeScript',
-    iconUrl:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
-    color: '#3178c6',
+    name: 'Vite',
+    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
+    color: '#bd34fe',
   },
   {
     name: 'Vuetify',
@@ -34,40 +34,9 @@ export const techLogos: TechLogo[] = [
     color: '#1976d2',
   },
   {
-    name: 'Vite',
-    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
-    color: '#bd34fe',
-  },
-  {
-    name: 'Codex',
-    iconUrl: 'https://api.iconify.design/simple-icons/openai.svg?color=%23f97316',
-    color: '#f97316',
-  },
-  {
-    name: 'Antigravity',
-    iconUrl: 'https://api.iconify.design/bxl/google-antigravity.svg?color=%23f97316',
-    color: '#f97316',
-  },
-  {
-    name: 'Claude Code',
-    iconUrl: 'https://api.iconify.design/simple-icons/claude.svg?color=%23d97757',
-    color: '#d97757',
-  },
-  {
-    name: 'WebStorm',
-    iconUrl:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webstorm/webstorm-original.svg',
-    color: '#00cdd7',
-  },
-  {
-    name: 'Slack',
-    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg',
-    color: '#e01e5a',
-  },
-  {
-    name: 'Teams',
-    iconUrl: 'https://api.iconify.design/logos/microsoft-teams.svg',
-    color: '#6264a7',
+    name: 'Vitest',
+    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg',
+    color: '#729b1b',
   },
   {
     name: 'Docker',
@@ -78,5 +47,36 @@ export const techLogos: TechLogo[] = [
     name: 'Git',
     iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
     color: '#f05032',
+  },
+  {
+    name: 'VS Code',
+    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
+    color: '#24a4ff',
+  },
+  {
+    name: 'WebStorm',
+    iconUrl:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/webstorm/webstorm-original.svg',
+    color: '#00cdd7',
+  },
+  {
+    name: 'Figma',
+    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
+    color: '#f24e1e',
+  },
+  {
+    name: 'Cursor',
+    iconUrl: 'https://api.iconify.design/simple-icons/cursor.svg?color=%23a3a3a3',
+    color: '#a3a3a3',
+  },
+  {
+    name: 'Claude Code',
+    iconUrl: 'https://api.iconify.design/simple-icons/claude.svg?color=%23d97757',
+    color: '#d97757',
+  },
+  {
+    name: 'Codex',
+    iconUrl: 'https://api.iconify.design/simple-icons/openai.svg?color=%23f97316',
+    color: '#f97316',
   },
 ]

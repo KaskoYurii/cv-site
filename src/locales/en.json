@@ -7,9 +7,9 @@
     "toggleMenu": "Toggle menu"
   },
   "hero": {
-    "role": "Front-End Developer",
-    "description": "I create fast, reliable interfaces for complex web products. Most of my work is around Vue.js, dashboards, reusable components, and frontend architecture that can grow without becoming hard to maintain.",
-    "experience": "4+ years of experience building scalable, high-performance web applications.",
+    "role": "Front-End Engineer",
+    "description": "I build fast, reliable interfaces for complex web products — Vue 3, TypeScript, Pinia, reusable component systems, and frontend architecture that stays maintainable as the product grows.",
+    "experience": "4+ years shipping production Vue applications end to end, including independent delivery, Vue 2→3 migrations, and AI-assisted workflows with a clear review bar.",
     "country": "Ukraine",
     "loadCV": "Load CV"
   },
@@ -26,28 +26,28 @@
     },
     "summaries": {
       "freelance": [
-        "Created a full-cycle admin platform for an auto service to manage the complete car repair workflow.",
-        "Built flows for repair intake, service tracking, customer records, work statuses, and operational admin tasks.",
-        "Managed backend implementation with AI-driven development tools to support the platform end to end.",
-        "Added Google integration and CI/CD workflow for smoother delivery and operations.",
-        "Designed reusable UI patterns for forms, tables, and dashboard views to keep daily work fast and consistent.",
-        "Delivered frontend architecture and implementation independently, from initial structure to production-ready screens."
+        "Built a full-cycle admin platform for an auto service covering the complete car repair workflow.",
+        "Shipped flows for repair intake, service tracking, customer records, work statuses, and operational tasks.",
+        "Delivered the API layer with AI-assisted development while owning review quality for production.",
+        "Added Google integration and CI/CD for smoother delivery and operations.",
+        "Designed reusable UI patterns for forms, tables, and operational screens used daily by staff.",
+        "Owned frontend architecture and implementation independently, from initial structure to production."
       ],
       "quardex": [
-        "Designed and maintained scalable frontend architecture for dashboard systems.",
-        "Built a reusable component system used across multiple modules.",
-        "Integrated Chart.js and AmCharts for data visualization.",
-        "Improved UI performance, responsiveness, and review quality across key pages."
+        "Designed and maintained scalable frontend architecture across multi-module product UIs.",
+        "Built a reusable component system shared across multiple product modules.",
+        "Integrated Chart.js and AmCharts for data visualization in product views.",
+        "Improved UI performance, responsiveness, and code-review quality on key pages."
       ],
       "nsoc360": [
-        "Developed UI for a monitoring and analytics platform.",
-        "Worked with Vue 2 and Vue 3 in a hybrid architecture.",
+        "Developed UI for a monitoring and analytics product used by an EU client.",
+        "Worked in a Vue 2 and Vue 3 hybrid architecture and contributed to migration paths.",
         "Implemented and optimized state management with Vuex and Pinia.",
-        "Collaborated with cross-functional teams in an agile environment."
+        "Collaborated with cross-functional teams in an agile remote setup."
       ],
       "nda": [
-        "Built the frontend from scratch, including architecture and component system.",
-        "Developed custom form components and validation logic.",
+        "Built the frontend from scratch, including architecture and a reusable component system.",
+        "Developed custom form components and validation logic for complex product flows.",
         "Worked closely with the product team to define UI and UX.",
         "Delivered a production-ready frontend independently."
       ]
