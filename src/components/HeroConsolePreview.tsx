@@ -1,8 +1,7 @@
-import { useTranslation } from 'react-i18next'
+import { useLang } from '@/lang'
 
 export function HeroConsolePreview() {
-  const { t } = useTranslation()
-  const consoleLines = t('console.lines', { returnObjects: true }) as { prompt: string; value: string }[]
+  const { t } = useLang()
 
   return (
     <aside
@@ -19,7 +18,7 @@ export function HeroConsolePreview() {
         </div>
 
         <div className="space-y-5 px-5 py-6">
-          {consoleLines.map((line, index) => (
+          {t.console.lines.map((line, index) => (
             <div
               key={line.prompt}
               className="console-line flex min-w-0 items-start gap-3 text-sm"

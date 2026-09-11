@@ -10,8 +10,7 @@
     "role": "Front-End Engineer",
     "description": "I build fast, reliable interfaces for complex web products — Vue 3, TypeScript, Pinia, reusable component systems, and frontend architecture that stays maintainable as the product grows.",
     "experience": "4+ years shipping production Vue applications end to end, including independent delivery, Vue 2→3 migrations, and AI-assisted workflows with a clear review bar.",
-    "country": "Ukraine",
-    "loadCV": "Load CV"
+    "country": "Ukraine"
   },
   "stack": {
     "title": "Tech stack"
@@ -62,9 +61,18 @@
   },
   "console": {
     "lines": [
-      { "prompt": "create", "value": "interfaces that feel clear and reliable" },
-      { "prompt": "connect", "value": "frontend, integrations, and backend workflows" },
-      { "prompt": "ship", "value": "production-ready features with clean structure" }
+      {
+        "prompt": "create",
+        "value": "interfaces that feel clear and reliable"
+      },
+      {
+        "prompt": "connect",
+        "value": "frontend, integrations, and backend workflows"
+      },
+      {
+        "prompt": "ship",
+        "value": "production-ready features with clean structure"
+      }
     ]
   },
   "footer": {

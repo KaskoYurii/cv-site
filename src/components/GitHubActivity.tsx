@@ -1,10 +1,15 @@
-import { useEffect, useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import type {
-  ContributionDay,
-  GitHubContribution,
-  GitHubContributionResponse,
-} from '@/types/github'
+import { useEffect, useState } from 'react'
+import { useLang } from '@/lang'
+
+type GitHubContribution = {
+  count: number
+  date: string
+  level: 0 | 1 | 2 | 3 | 4
+}
+
+type ContributionDay = GitHubContribution & {
+  isOutsideRange: boolean
+}
 
 const contributionsUrl = 'https://github-contributions-api.jogruber.de/v4/KaskoYurii?y=last'
 const monthFormatter = new Intl.DateTimeFormat('en', { month: 'short' })
@@ -83,44 +88,31 @@ async function loadContributions() {
     throw new Error('Contribution request failed')
   }
 
-  return (await response.json()) as GitHubContributionResponse
+  return (await response.json()) as {
+    contributions: GitHubContribution[]
+    total: { lastYear: number }
+  }
 }
 
 export function GitHubActivity() {
-  const { t } = useTranslation()
-  const [contributions, setContributions] = useState<GitHubContribution[]>([])
+  const { t } = useLang()
+  const [weeks, setWeeks] = useState<ContributionDay[][]>([])
   const [total, setTotal] = useState<number | null>(null)
   const [hasError, setHasError] = useState(false)
-  const weeks = useMemo(() => buildContributionWeeks(contributions), [contributions])
 
   useEffect(() => {
-    let isMounted = true
-
     loadContributions()
       .then((data) => {
-        if (!isMounted) {
-          return
-        }
-
-        setContributions(data.contributions)
-        setTotal(data.total.lastYear ?? Object.values(data.total).at(-1) ?? null)
-        setHasError(false)
+        setWeeks(buildContributionWeeks(data.contributions))
+        setTotal(data.total.lastYear)
       })
-      .catch(() => {
-        if (isMounted) {
-          setHasError(true)
-        }
-      })
-
-    return () => {
-      isMounted = false
-    }
+      .catch(() => setHasError(true))
   }, [])
 
   return (
     <section className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32">
       <p className="text-sm font-semibold uppercase tracking-wider text-orange-400">
-        {t('github.title')}
+        {t.github.title}
       </p>
 
       <div className="mt-8 overflow-hidden border-y border-orange-400/20 bg-black/45 py-6 backdrop-blur-sm">
@@ -130,12 +122,12 @@ export function GitHubActivity() {
               {total === null ? '...' : total.toLocaleString()}
             </p>
             <p className="mt-1 text-sm uppercase tracking-wider text-slate-500">
-              {t('github.lastYear')}
+              {t.github.lastYear}
             </p>
           </div>
 
           <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-slate-500">
-            <span>{t('github.quiet')}</span>
+            <span>{t.github.quiet}</span>
             {levelColors.map((color, index) => (
               <span
                 key={color}
@@ -144,7 +136,7 @@ export function GitHubActivity() {
                 aria-label={`Activity level ${index}`}
               />
             ))}
-            <span>{t('github.active')}</span>
+            <span>{t.github.active}</span>
           </div>
         </div>
 
@@ -170,7 +162,7 @@ export function GitHubActivity() {
                   title={`${day.count} contributions on ${day.date}`}
                   className="size-3 rounded-full shadow-[0_0_14px_rgba(249,115,22,0.08)]"
                   style={{
-                    backgroundColor: day.isOutsideRange ? 'transparent' : levelColors[day.level],
+                    backgroundColor: levelColors[day.level],
                     opacity: day.isOutsideRange ? 0 : 1,
                   }}
                 />
@@ -181,7 +173,7 @@ export function GitHubActivity() {
         </div>
 
         {hasError ? (
-          <p className="mt-4 text-sm text-slate-500">{t('github.error')}</p>
+          <p className="mt-4 text-sm text-slate-500">{t.github.error}</p>
         ) : null}
       </div>
     </section>

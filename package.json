@@ -11,11 +11,8 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "i18next": "^26.0.8",
-    "i18next-browser-languagedetector": "^8.2.1",
     "react": "latest",
-    "react-dom": "latest",
-    "react-i18next": "^17.0.6"
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@eslint/js": "latest",

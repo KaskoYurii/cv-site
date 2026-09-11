@@ -1,4 +1,21 @@
-import type { HyperspaceStar, HyperspaceState } from '@/types/preloader'
+type HyperspaceStar = {
+  previousZ: number
+  x: number
+  y: number
+  z: number
+}
+
+type HyperspaceState = {
+  animationFrame: number
+  animationStart: number
+  canvas: HTMLCanvasElement
+  centerX: number
+  centerY: number
+  context: CanvasRenderingContext2D
+  height: number
+  stars: HyperspaceStar[]
+  width: number
+}
 
 export const preloaderDuration = 5400
 export const preloaderSessionKey = 'cv-site-preloader-seen'
@@ -98,9 +115,7 @@ function renderFrame(state: HyperspaceState, time: number) {
     drawStar(state, star, elapsed, speed)
   }
 
-  if (elapsed < preloaderDuration + 200) {
-    state.animationFrame = window.requestAnimationFrame((nextTime) => renderFrame(state, nextTime))
-  }
+  state.animationFrame = window.requestAnimationFrame((nextTime) => renderFrame(state, nextTime))
 }
 
 export function startHyperspacePreloader(canvas: HTMLCanvasElement) {

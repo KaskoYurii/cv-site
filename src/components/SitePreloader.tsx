@@ -24,15 +24,7 @@ export function SitePreloader() {
     return () => window.clearTimeout(timeout)
   }, [isVisible])
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-
-    if (!isVisible || !canvas) {
-      return
-    }
-
-    return startHyperspacePreloader(canvas)
-  }, [isVisible])
+  useEffect(() => (isVisible ? startHyperspacePreloader(canvasRef.current!) : undefined), [isVisible])
 
   if (!isVisible) {
     return null

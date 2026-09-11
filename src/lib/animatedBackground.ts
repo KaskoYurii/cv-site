@@ -1,4 +1,20 @@
-import type { BackgroundState, Star } from '@/types/background'
+type Star = {
+  x: number
+  y: number
+  radius: number
+  alpha: number
+  phase: number
+}
+
+type BackgroundState = {
+  canvas: HTMLCanvasElement
+  context: CanvasRenderingContext2D
+  width: number
+  height: number
+  frame: number
+  stars: Star[]
+  pointer: { x: number; y: number; targetX: number; targetY: number }
+}
 
 const STAR_COUNT = 230
 const MAX_PIXEL_RATIO = 1.35

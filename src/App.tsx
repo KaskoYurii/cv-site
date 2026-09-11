@@ -1,14 +1,22 @@
+import { useEffect, useState } from 'react'
 import { AnimatedBackground } from '@/components/AnimatedBackground'
 import { GitHubActivity } from '@/components/GitHubActivity'
 import { HeroSection } from '@/components/HeroSection'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
+import { SitePreloader } from '@/components/SitePreloader'
 import { TechStack } from '@/components/TechStack'
 import { WorkExperience } from '@/components/WorkExperience'
+import { initialLang, LangContext } from '@/lang'
 
-export function HomePage() {
+export function App() {
+  const [lang, setLang] = useState(initialLang)
+
+  useEffect(() => localStorage.setItem('lang', lang), [lang])
+
   return (
-    <>
+    <LangContext value={[lang, setLang]}>
+      <SitePreloader />
       <SiteHeader />
       <main
         id="main-content"
@@ -21,6 +29,6 @@ export function HomePage() {
         <GitHubActivity />
         <SiteFooter />
       </main>
-    </>
+    </LangContext>
   )
 }
