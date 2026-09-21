@@ -1,27 +1,61 @@
 {
-  "header": {
+  "nav": {
     "about": "Про мене",
-    "stack": "Стек",
     "experience": "Досвід",
+    "stack": "Стек",
+    "github": "GitHub"
+  },
+  "header": {
     "loadCV": "Завантажити CV",
-    "toggleMenu": "Перемкнути меню"
+    "switchLang": "English"
   },
   "hero": {
-    "role": "Front-End Engineer",
-    "description": "Я будую швидкі та надійні інтерфейси для складних веб-продуктів — Vue 3, TypeScript, Pinia, системи перевикористовуваних компонентів і frontend-архітектуру, яка залишається зручною в підтримці разом із ростом продукту.",
-    "experience": "4+ роки доставки Vue-додатків у продакшен end-to-end, включно з самостійною реалізацією, міграціями Vue 2→3 та AI-assisted workflow з чітким review bar.",
+    "role": "Front-end інженер",
+    "facts": [
+      [
+        "Локація",
+        "Україна"
+      ],
+      [
+        "Досвід",
+        "4+ роки"
+      ],
+      [
+        "Основний стек",
+        "Vue 3, TypeScript"
+      ]
+    ],
+    "description": "Я будую швидкі та надійні інтерфейси для складних веб-продуктів: Vue 3, TypeScript, Pinia, системи перевикористовуваних компонентів і frontend-архітектуру, яка залишається зручною в підтримці разом із ростом продукту.",
+    "experience": "4+ роки доставки Vue-додатків у продакшен end-to-end, включно з самостійною реалізацією, міграціями з Vue 2 на 3 та AI-assisted workflow з чітким review bar.",
     "country": "Україна"
   },
+  "timeline": {
+    "title": "Де працював, по місяцях",
+    "present": "зараз",
+    "current": "триває"
+  },
   "stack": {
-    "title": "Технологічний стек"
+    "title": "Стек"
+  },
+  "github": {
+    "title": "GitHub",
+    "lastYear": "контриб'юцій за останній рік",
+    "less": "Менше",
+    "more": "Більше",
+    "error": "Графік контриб'юцій тимчасово недоступний."
+  },
+  "footer": {
+    "rights": "© {{year}} Юрій Касько",
+    "builtWith": "Створено з React, TypeScript та Tailwind CSS. Шрифт: Fixel від MacPaw."
   },
   "experience": {
-    "title": "Досвід роботи",
+    "title": "Досвід",
+    "netherlands": "Нідерланди",
     "roles": {
-      "freelance": "Front-End Розробник",
-      "quardex": "Front-End Розробник",
-      "nsoc360": "Front-End Розробник, контракт через Quardex",
-      "nda": "Front-End Розробник, part-time"
+      "freelance": "Front-end розробник",
+      "quardex": "Front-end розробник",
+      "nsoc360": "Front-end розробник, контракт через Quardex",
+      "nda": "Front-end розробник, part-time"
     },
     "summaries": {
       "freelance": [
@@ -51,32 +85,5 @@
         "Самостійно доставив готовий до продакшену frontend."
       ]
     }
-  },
-  "github": {
-    "title": "Активність GitHub",
-    "lastYear": "контриб'юцій за останній рік",
-    "quiet": "Тихо",
-    "active": "Активно",
-    "error": "Графік контриб'юцій тимчасово недоступний."
-  },
-  "console": {
-    "lines": [
-      {
-        "prompt": "створюю",
-        "value": "інтерфейси, які є зрозумілими та надійними"
-      },
-      {
-        "prompt": "з'єдную",
-        "value": "frontend, інтеграції та backend процеси"
-      },
-      {
-        "prompt": "доставляю",
-        "value": "готовий до продакшену код з чистою структурою"
-      }
-    ]
-  },
-  "footer": {
-    "rights": "© {{year}} Yurii Kasko. Всі права захищені.",
-    "builtWith": "Створено з React, TypeScript та Tailwind CSS."
   }
 }

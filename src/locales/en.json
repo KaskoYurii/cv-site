@@ -1,27 +1,61 @@
 {
-  "header": {
+  "nav": {
     "about": "About",
-    "stack": "Stack",
     "experience": "Experience",
-    "loadCV": "Load CV",
-    "toggleMenu": "Toggle menu"
+    "stack": "Stack",
+    "github": "GitHub"
+  },
+  "header": {
+    "loadCV": "Download CV",
+    "switchLang": "Українська"
   },
   "hero": {
-    "role": "Front-End Engineer",
-    "description": "I build fast, reliable interfaces for complex web products — Vue 3, TypeScript, Pinia, reusable component systems, and frontend architecture that stays maintainable as the product grows.",
-    "experience": "4+ years shipping production Vue applications end to end, including independent delivery, Vue 2→3 migrations, and AI-assisted workflows with a clear review bar.",
+    "role": "Front-end engineer",
+    "facts": [
+      [
+        "Based in",
+        "Ukraine"
+      ],
+      [
+        "Experience",
+        "4+ years"
+      ],
+      [
+        "Main stack",
+        "Vue 3, TypeScript"
+      ]
+    ],
+    "description": "I build fast, reliable interfaces for complex web products: Vue 3, TypeScript, Pinia, reusable component systems, and frontend architecture that stays maintainable as the product grows.",
+    "experience": "4+ years shipping production Vue applications end to end, including independent delivery, Vue 2 to 3 migrations, and AI-assisted workflows with a clear review bar.",
     "country": "Ukraine"
   },
+  "timeline": {
+    "title": "Where I worked, by month",
+    "present": "now",
+    "current": "current"
+  },
   "stack": {
-    "title": "Tech stack"
+    "title": "Stack"
+  },
+  "github": {
+    "title": "GitHub",
+    "lastYear": "contributions in the last year",
+    "less": "Less",
+    "more": "More",
+    "error": "Contribution graph is temporarily unavailable."
+  },
+  "footer": {
+    "rights": "© {{year}} Yurii Kasko",
+    "builtWith": "Built with React, TypeScript, and Tailwind CSS. Typeface: Fixel by MacPaw."
   },
   "experience": {
-    "title": "Work experience",
+    "title": "Experience",
+    "netherlands": "Netherlands",
     "roles": {
-      "freelance": "Front-End Developer",
-      "quardex": "Front-End Developer",
-      "nsoc360": "Front-End Developer, contract via Quardex",
-      "nda": "Front-End Developer, part-time"
+      "freelance": "Front-end developer",
+      "quardex": "Front-end developer",
+      "nsoc360": "Front-end developer, contract via Quardex",
+      "nda": "Front-end developer, part-time"
     },
     "summaries": {
       "freelance": [
@@ -51,32 +85,5 @@
         "Delivered a production-ready frontend independently."
       ]
     }
-  },
-  "github": {
-    "title": "GitHub activity",
-    "lastYear": "contributions in the last year",
-    "quiet": "Quiet",
-    "active": "Active",
-    "error": "Contribution graph is temporarily unavailable."
-  },
-  "console": {
-    "lines": [
-      {
-        "prompt": "create",
-        "value": "interfaces that feel clear and reliable"
-      },
-      {
-        "prompt": "connect",
-        "value": "frontend, integrations, and backend workflows"
-      },
-      {
-        "prompt": "ship",
-        "value": "production-ready features with clean structure"
-      }
-    ]
-  },
-  "footer": {
-    "rights": "© {{year}} Yurii Kasko. All rights reserved.",
-    "builtWith": "Built with React, TypeScript, and Tailwind CSS."
   }
 }

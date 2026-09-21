@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { AnimatedBackground } from '@/components/AnimatedBackground'
 import { GitHubActivity } from '@/components/GitHubActivity'
 import { HeroSection } from '@/components/HeroSection'
@@ -8,6 +8,10 @@ import { SitePreloader } from '@/components/SitePreloader'
 import { TechStack } from '@/components/TechStack'
 import { WorkExperience } from '@/components/WorkExperience'
 import { initialLang, LangContext } from '@/lang'
+import { preloaderDuration, preloaderSessionKey } from '@/lib/hyperspacePreloader'
+
+// The entrance waits for the preloader to start fading (82% of its run) on first visit.
+const introDelay = sessionStorage.getItem(preloaderSessionKey) ? 0 : preloaderDuration * 0.82
 
 export function App() {
   const [lang, setLang] = useState(initialLang)
@@ -17,18 +21,25 @@ export function App() {
   return (
     <LangContext value={[lang, setLang]}>
       <SitePreloader />
-      <SiteHeader />
-      <main
-        id="main-content"
-        className="relative isolate min-h-screen overflow-x-hidden bg-black px-6 text-white"
+      <AnimatedBackground />
+      <div
+        className="relative z-10 mx-auto max-w-7xl"
+        style={{ '--intro-delay': `${introDelay}ms` } as CSSProperties}
       >
-        <AnimatedBackground />
-        <HeroSection />
-        <TechStack />
-        <WorkExperience />
-        <GitHubActivity />
+        <div className="grid-lines" aria-hidden="true">
+          {Array.from({ length: 12 }, (_, i) => (
+            <span key={i} />
+          ))}
+        </div>
+        <SiteHeader />
+        <main>
+          <HeroSection />
+          <WorkExperience />
+          <TechStack />
+          <GitHubActivity />
+        </main>
         <SiteFooter />
-      </main>
+      </div>
     </LangContext>
   )
 }

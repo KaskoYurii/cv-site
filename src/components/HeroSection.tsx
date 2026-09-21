@@ -1,69 +1,80 @@
-import { HeroConsolePreview } from '@/components/HeroConsolePreview'
+import type { CSSProperties } from 'react'
+import { focusRing, Row } from '@/components/Section'
 import { cvHref } from '@/components/SiteHeader'
+import { Timeline } from '@/components/Timeline'
 import { useLang } from '@/lang'
+
+const contacts = [
+  { label: 'hellokasko@gmail.com', href: 'mailto:hellokasko@gmail.com' },
+  { label: 'Telegram', href: 'https://t.me/whoisyurii' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/yurii-kasko/' },
+]
+
+const step = (i: number) => ({ '--i': i }) as CSSProperties
 
 export function HeroSection() {
   const { t } = useLang()
 
   return (
-    <section
-      id="about"
-      className="relative z-10 mx-auto grid min-h-screen max-w-6xl scroll-mt-24 items-start gap-14 pt-32 sm:pt-40 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-center lg:pt-20"
-    >
-      <div className="max-w-3xl lg:max-w-2xl">
-        <p className="animate-[hero-fade_500ms_ease-out_80ms_both] text-sm font-semibold uppercase tracking-wider text-orange-400">
-          {t.hero.role}
-        </p>
-
-        <h1 className="mt-5 animate-[hero-fade_600ms_ease-out_140ms_both] text-4xl font-semibold leading-tight text-balance text-white sm:text-7xl">
-          Yurii Kasko
-        </h1>
-
-        <p className="mt-6 animate-[hero-fade_600ms_ease-out_200ms_both] text-lg leading-8 text-pretty text-slate-300 sm:text-xl sm:leading-9">
-          {t.hero.description}
-        </p>
-
-        <p className="mt-6 animate-[hero-fade_600ms_ease-out_260ms_both] text-sm leading-7 text-slate-400">
-          {t.hero.experience}
-        </p>
-
-        <div className="mt-8 flex animate-[hero-fade_600ms_ease-out_320ms_both] flex-col gap-3 text-sm text-slate-400 sm:flex-row sm:flex-wrap sm:items-center">
-          <span>{t.hero.country}</span>
-          <a
-            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
-            href="mailto:hellokasko@gmail.com"
+    <section id="about" className="scroll-mt-14">
+      <Row className="border-t-0">
+        <div className="col-span-4 px-5 pt-16 pb-10 lg:col-span-8 lg:pt-24 lg:pb-14">
+          <p className="rise text-lg text-ink-soft" style={step(0)}>
+            {t.hero.role}
+          </p>
+          <h1
+            className="rise mt-3 font-display text-[clamp(3.75rem,15vw,9.5rem)] leading-[0.92] font-extrabold tracking-[-0.035em]"
+            style={step(1)}
           >
-            hellokasko@gmail.com
-          </a>
-          <a
-            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
-            href="https://t.me/whoisyurii"
-            rel="noreferrer"
-            target="_blank"
-          >
-            @whoisyurii
-          </a>
-          <a
-            className="rounded-sm transition-colors duration-200 hover:text-orange-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
-            href="https://www.linkedin.com/in/yurii-kasko/"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Linkedin
-          </a>
+            Yurii Kasko
+          </h1>
         </div>
 
-        <div className="mt-10 flex animate-[hero-fade_600ms_ease-out_380ms_both] flex-col gap-3 sm:flex-row">
+        <dl className="rise col-span-4 grid content-end gap-y-4 border-t border-rule px-5 py-6 lg:col-span-4 lg:border-t-0 lg:border-l lg:py-14" style={step(2)}>
+          {t.hero.facts.map(([label, value]) => (
+            <div key={label} className="flex items-baseline justify-between gap-4 border-b border-rule pb-3 last:border-b-0 last:pb-0">
+              <dt className="text-sm text-ink-soft">{label}</dt>
+              <dd className="text-right font-medium">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </Row>
+
+      <Row>
+        <div className="rise col-span-4 px-5 py-8 lg:col-span-7 lg:py-10" style={step(3)}>
+          <p className="max-w-[36rem] text-lg leading-8 lg:text-xl lg:leading-9">{t.hero.description}</p>
+          <p className="mt-4 max-w-[36rem] leading-7 text-ink-soft">{t.hero.experience}</p>
+        </div>
+        <div
+          className="rise col-span-4 flex flex-col justify-end gap-6 border-t border-rule px-5 py-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:py-10"
+          style={step(4)}
+        >
           <a
             href={cvHref}
-            className="inline-flex h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-semibold text-black shadow-lg shadow-white/10 transition-[background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:bg-orange-100 hover:shadow-orange-400/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-4 focus-visible:ring-offset-black active:translate-y-0"
+            download
+            className={`${focusRing} press inline-flex h-12 items-center self-start rounded-sm bg-flare px-6 font-semibold text-black hover:bg-ink`}
           >
             {t.header.loadCV}
           </a>
+          <ul className="flex flex-wrap gap-x-5">
+            {contacts.map((contact) => (
+              <li key={contact.href}>
+                <a
+                  href={contact.href}
+                  className={`${focusRing} link inline-flex min-h-11 items-center text-sm`}
+                  {...(contact.href.startsWith('http') && { target: '_blank', rel: 'noreferrer' })}
+                >
+                  {contact.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      </Row>
 
-      <HeroConsolePreview />
+      <Row>
+        <Timeline />
+      </Row>
     </section>
   )
 }

@@ -1,84 +1,42 @@
-import type { CSSProperties } from 'react'
-import { useRevealOnScroll } from '@/hooks/useRevealOnScroll'
+import { Row, SectionTitle } from '@/components/Section'
+import { jobs, usePeriod } from '@/components/jobs'
 import { useLang } from '@/lang'
 
 export function WorkExperience() {
-  const { t } = useLang()
-  const sectionRef = useRevealOnScroll<HTMLElement>()
-
-  const experiences = [
-    {
-      company: 'Quardex',
-      location: t.hero.country,
-      period: 'Jul 2021 - Apr 2025',
-      role: t.experience.roles.quardex,
-      summary: t.experience.summaries.quardex,
-    },
-    {
-      company: 'NSOC360',
-      location: 'Netherlands',
-      period: 'Sep 2021 - Apr 2025',
-      role: t.experience.roles.nsoc360,
-      summary: t.experience.summaries.nsoc360,
-    },
-    {
-      company: 'NDA Startup',
-      location: t.hero.country,
-      period: 'Jun 2025 - Apr 2026',
-      role: t.experience.roles.nda,
-      summary: t.experience.summaries.nda,
-    },
-    {
-      company: 'Freelance',
-      location: t.hero.country,
-      period: 'Apr 2025 - Present',
-      role: t.experience.roles.freelance,
-      summary: t.experience.summaries.freelance,
-    },
-  ]
+  const { t, lang } = useLang()
+  const period = usePeriod(lang, t.timeline.present)
 
   return (
-    <section
-      id="experience"
-      ref={sectionRef}
-      className="relative z-10 mx-auto max-w-6xl py-24 sm:py-32"
-    >
-      <p
-        className="reveal-up text-sm font-semibold uppercase tracking-wider text-orange-400"
-        data-reveal
-      >
-        {t.experience.title}
-      </p>
-
-      <div className="mt-8 space-y-5">
-        {experiences.map((experience, index) => (
+    <section>
+      <Row>
+        <div className="col-span-4 lg:col-span-12">
+          <SectionTitle id="experience">{t.experience.title}</SectionTitle>
+        </div>
+      </Row>
+      <Row className="lg:[&>*:nth-child(even)]:border-l">
+        {jobs.map((job, i) => (
           <article
-            key={`${experience.company}-${experience.period}`}
-            className="reveal-up border-l border-orange-400/35 bg-black/40 px-5 py-5 backdrop-blur-sm transition-[border-color,background-color] duration-300 hover:border-orange-300/70 hover:bg-black/55 sm:px-6"
-            data-reveal
-            style={{ '--reveal-delay': `${index * 120}ms` } as CSSProperties}
+            key={job.id}
+            id={job.id}
+            className={`col-span-4 scroll-mt-14 px-5 py-8 lg:col-span-6 lg:py-10 ${i > 0 ? 'border-t border-rule' : ''} ${i === 1 ? 'lg:border-t-0' : ''} ${i >= 2 ? 'lg:border-t' : ''}`}
           >
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <h2 className="text-2xl font-semibold text-white">{experience.company}</h2>
-                <p className="mt-1 text-sm text-slate-400">
-                  {experience.role} · {experience.location}
-                </p>
-              </div>
-              <p className="text-sm font-medium text-orange-200">{experience.period}</p>
-            </div>
-
-            <ul className="mt-5 grid gap-3 text-sm leading-6 text-slate-300 sm:grid-cols-2">
-              {experience.summary.map((item) => (
+            <p className="text-sm text-ink-soft">{period(job)}</p>
+            <h3 className="mt-2 font-display text-2xl font-bold tracking-tight lg:text-3xl">
+              {job.company}
+              <span className="text-ink-soft">, {job.id === 'nsoc360' ? t.experience.netherlands : t.hero.country}</span>
+            </h3>
+            <p className="mt-1 text-ink-soft">{t.experience.roles[job.id]}</p>
+            <ul className="mt-6 space-y-3 leading-7">
+              {t.experience.summaries[job.id].map((item) => (
                 <li key={item} className="flex gap-3">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-orange-400" />
+                  <span className="mt-3 h-px w-3 shrink-0 bg-flare" aria-hidden="true" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </article>
         ))}
-      </div>
+      </Row>
     </section>
   )
 }

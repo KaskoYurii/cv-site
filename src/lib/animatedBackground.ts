@@ -43,25 +43,83 @@ function resizeCanvas(state: BackgroundState) {
   state.stars = createStars(state.width, state.height)
 }
 
-function drawEventHorizon(state: BackgroundState) {
+const HORIZON_RADIUS = 26
+const DISK_TILT = -0.38
+
+// Gargantua in 2D: a tilted accretion disk that passes behind and in front of the
+// horizon, brighter on the approaching side, plus a photon ring and a lensed arc on top.
+function drawBlackHole(state: BackgroundState, time: number) {
   const { context, pointer } = state
-  const glow = context.createRadialGradient(pointer.x, pointer.y, 6, pointer.x, pointer.y, 92)
+  const R = HORIZON_RADIUS
+  const spin = time * 0.0011
 
-  glow.addColorStop(0, 'rgba(0, 0, 0, 0.86)')
-  glow.addColorStop(0.34, 'rgba(0, 0, 0, 0.62)')
-  glow.addColorStop(0.62, 'rgba(255, 91, 0, 0.045)')
+  const glow = context.createRadialGradient(pointer.x, pointer.y, R, pointer.x, pointer.y, R * 6)
+  glow.addColorStop(0, 'rgba(255, 91, 0, 0.16)')
+  glow.addColorStop(0.5, 'rgba(255, 91, 0, 0.04)')
   glow.addColorStop(1, 'rgba(255, 91, 0, 0)')
-
   context.fillStyle = glow
   context.beginPath()
-  context.arc(pointer.x, pointer.y, 120, 0, Math.PI * 2)
+  context.arc(pointer.x, pointer.y, R * 6, 0, Math.PI * 2)
   context.fill()
 
-  context.strokeStyle = 'rgba(255, 98, 0, 0.14)'
-  context.lineWidth = 1
+  context.save()
+  context.translate(pointer.x, pointer.y)
+  context.rotate(DISK_TILT)
+
+  // Doppler beaming: the side moving toward the viewer is hotter and brighter.
+  const beaming = context.createLinearGradient(-R * 4, 0, R * 4, 0)
+  beaming.addColorStop(0, 'rgba(255, 236, 210, 1)')
+  beaming.addColorStop(0.45, 'rgba(255, 150, 60, 0.85)')
+  beaming.addColorStop(1, 'rgba(200, 60, 0, 0.3)')
+
+  const disk = (from: number, to: number) => {
+    context.strokeStyle = beaming
+    for (let i = 0; i < 16; i++) {
+      const t = i / 16
+      const rx = R * (1.55 + t * 2.3)
+      // Turbulent bands drift around the disk over time.
+      const band = 0.5 + 0.5 * Math.sin(spin * (1.4 - t) + i * 2.1)
+      context.globalAlpha = (1 - t) ** 1.6 * (0.35 + band * 0.5)
+      context.lineWidth = R * 0.24
+      context.beginPath()
+      context.ellipse(0, 0, rx, rx * 0.26, 0, from, to)
+      context.stroke()
+    }
+    context.globalAlpha = 1
+  }
+
+  // Back half of the disk, then the horizon, then the front half.
+  disk(Math.PI, Math.PI * 2)
+
+  context.fillStyle = '#000'
   context.beginPath()
-  context.arc(pointer.x, pointer.y, 28, 0, Math.PI * 2)
+  context.arc(0, 0, R, 0, Math.PI * 2)
+  context.fill()
+
+  disk(0, Math.PI)
+
+  // Light from the far side bends over the top: the lensed arc.
+  context.strokeStyle = beaming
+  for (let i = 0; i < 4; i++) {
+    context.globalAlpha = 0.5 - i * 0.1
+    context.lineWidth = R * 0.14
+    context.beginPath()
+    context.ellipse(0, 0, R * (1.18 + i * 0.1), R * (1.16 + i * 0.14), 0, Math.PI * 1.04, Math.PI * 1.96)
+    context.stroke()
+  }
+  context.globalAlpha = 1
+
+  // Photon ring: the thin bright edge right outside the horizon.
+  context.strokeStyle = 'rgba(255, 215, 170, 0.55)'
+  context.lineWidth = 0.9
+  context.shadowColor = 'rgba(255, 150, 50, 0.8)'
+  context.shadowBlur = 8
+  context.beginPath()
+  context.arc(0, 0, R * 1.04, 0, Math.PI * 2)
   context.stroke()
+  context.shadowBlur = 0
+
+  context.restore()
 }
 
 function drawStarField(state: BackgroundState, time: number) {
@@ -126,7 +184,7 @@ function renderFrame(state: BackgroundState, time: number) {
   context.fillRect(0, 0, width, height)
 
   drawStarField(state, time)
-  drawEventHorizon(state)
+  drawBlackHole(state, time)
 
   state.frame = window.requestAnimationFrame((nextTime) => renderFrame(state, nextTime))
 }
