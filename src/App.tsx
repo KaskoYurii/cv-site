@@ -15,7 +15,10 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 export function App() {
   const [lang, setLang] = useState(initialLang)
 
-  useEffect(() => localStorage.setItem('lang', lang), [lang])
+  useEffect(() => {
+    localStorage.setItem('lang', lang)
+    document.documentElement.lang = lang === 'ua' ? 'uk' : 'en'
+  }, [lang])
 
   // Smooth, inertial scroll; anchors glide too. Skipped under reduced motion.
   useEffect(() => {
