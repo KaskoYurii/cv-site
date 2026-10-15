@@ -1,10 +1,12 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { hydrateRoot } from 'react-dom/client'
 import { Analytics } from '@vercel/analytics/react'
 import { App } from './App'
 import './styles/global.css'
 
-createRoot(document.getElementById('root')!).render(
+// index.html arrives prerendered (scripts/prerender.js), so hydrate instead of rendering.
+hydrateRoot(
+  document.getElementById('root')!,
   <StrictMode>
     <App />
     <Analytics />

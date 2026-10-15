@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Lenis from 'lenis'
 import { Cursor } from '@/components/Cursor'
 import { GitHubActivity } from '@/components/GitHubActivity'
@@ -8,21 +8,18 @@ import { SiteHeader } from '@/components/SiteHeader'
 import { Statement } from '@/components/Statement'
 import { TechStack } from '@/components/TechStack'
 import { WorkExperience } from '@/components/WorkExperience'
-import { initialLang, LangContext } from '@/lang'
-
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+import { useLang } from '@/lang'
 
 export function App() {
-  const [lang, setLang] = useState(initialLang)
+  const { lang } = useLang()
 
   useEffect(() => {
-    localStorage.setItem('lang', lang)
     document.documentElement.lang = lang === 'ua' ? 'uk' : 'en'
   }, [lang])
 
   // Smooth, inertial scroll; anchors glide too. Skipped under reduced motion.
   useEffect(() => {
-    if (reducedMotion) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return
     }
     const lenis = new Lenis({ anchors: true, autoRaf: true })
@@ -47,7 +44,7 @@ export function App() {
   }, [])
 
   return (
-    <LangContext value={[lang, setLang]}>
+    <>
       <Cursor />
       <SiteHeader />
       <main>
@@ -58,6 +55,6 @@ export function App() {
         <GitHubActivity />
       </main>
       <SiteFooter />
-    </LangContext>
+    </>
   )
 }
