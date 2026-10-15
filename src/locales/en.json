@@ -22,11 +22,11 @@
       ],
       [
         "Main stack",
-        "Vue 3, TypeScript"
+        "Vue 3, React, TypeScript"
       ]
     ],
-    "description": "I build fast, reliable interfaces for complex web products: Vue 3, TypeScript, Pinia, reusable component systems, and frontend architecture that stays maintainable as the product grows.",
-    "experience": "4+ years shipping production Vue applications end to end, including independent delivery, Vue 2 to 3 migrations, and AI-assisted workflows with a clear review bar.",
+    "description": "I build interfaces for complex web products with Vue 3, React, and TypeScript, from component systems to frontend architecture.",
+    "experience": "4+ years in production: Vue 2 to 3 migrations, solo projects delivered end to end, AI-assisted development with careful review.",
     "country": "Ukraine"
   },
   "timeline": {
