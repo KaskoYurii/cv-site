@@ -1,14 +1,7 @@
 import type { CSSProperties } from 'react'
-import { focusRing, Row } from '@/components/Section'
+import { focusRing } from '@/components/Section'
 import { cvHref } from '@/components/SiteHeader'
-import { Timeline } from '@/components/Timeline'
 import { useLang } from '@/lang'
-
-const contacts = [
-  { label: 'hellokasko@gmail.com', href: 'mailto:hellokasko@gmail.com' },
-  { label: 'Telegram', href: 'https://t.me/whoisyurii' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/yurii-kasko/' },
-]
 
 const step = (i: number) => ({ '--i': i }) as CSSProperties
 
@@ -16,65 +9,41 @@ export function HeroSection() {
   const { t } = useLang()
 
   return (
-    <section id="about" className="scroll-mt-14">
-      <Row className="border-t-0">
-        <div className="col-span-4 px-5 pt-16 pb-10 lg:col-span-8 lg:pt-24 lg:pb-14">
-          <p className="rise text-lg text-ink-soft" style={step(0)}>
-            {t.hero.role}
-          </p>
-          <h1
-            className="rise mt-3 font-display text-[clamp(3.75rem,15vw,9.5rem)] leading-[0.92] font-extrabold tracking-[-0.035em]"
-            style={step(1)}
-          >
-            Yurii Kasko
-          </h1>
-        </div>
+    <section id="about" className="flex min-h-dvh flex-col justify-end px-5 pt-28 pb-10 lg:px-10 lg:pb-14">
+      <h1
+        aria-label="Yurii Kasko"
+        className="font-display text-[clamp(4.25rem,19.5vw,22rem)] leading-[0.84] font-bold tracking-tighter uppercase"
+      >
+        <span className="mask-line" aria-hidden="true">
+          <span style={step(0)}>Yurii</span>
+        </span>
+        <span className="mask-line" aria-hidden="true">
+          <span style={step(1)}>Kasko</span>
+        </span>
+      </h1>
 
-        <dl className="rise col-span-4 grid content-end gap-y-4 border-t border-rule px-5 py-6 lg:col-span-4 lg:border-t-0 lg:border-l lg:py-14" style={step(2)}>
-          {t.hero.facts.map(([label, value]) => (
-            <div key={label} className="flex items-baseline justify-between gap-4 border-b border-rule pb-3 last:border-b-0 last:pb-0">
-              <dt className="text-sm text-ink-soft">{label}</dt>
-              <dd className="text-right font-medium">{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </Row>
-
-      <Row>
-        <div className="rise col-span-4 px-5 py-8 lg:col-span-7 lg:py-10" style={step(3)}>
-          <p className="max-w-[36rem] text-lg leading-8 lg:text-xl lg:leading-9">{t.hero.description}</p>
-          <p className="mt-4 max-w-[36rem] leading-7 text-ink-soft">{t.hero.experience}</p>
-        </div>
-        <div
-          className="rise col-span-4 flex flex-col justify-end gap-6 border-t border-rule px-5 py-8 lg:col-span-5 lg:border-t-0 lg:border-l lg:py-10"
-          style={step(4)}
+      <div className="mt-10 grid items-end gap-8 lg:mt-14 lg:grid-cols-12">
+        <p className="fade-in text-lg text-muted lg:col-span-3" style={step(0)}>
+          {t.hero.role}
+          <br />
+          {t.hero.country}
+        </p>
+        <p
+          className="fade-in max-w-[30ch] text-2xl leading-tight font-medium tracking-tight text-balance lg:col-span-6 lg:text-[2rem]"
+          style={step(1)}
         >
+          {t.hero.description}
+        </p>
+        <div className="fade-in lg:col-span-3 lg:justify-self-end" style={step(2)}>
           <a
             href={cvHref}
             download
-            className={`${focusRing} press inline-flex h-12 items-center self-start rounded-sm bg-flare px-6 font-semibold text-black hover:bg-ink`}
+            className={`${focusRing} press flex size-32 items-center justify-center rounded-full bg-accent p-4 text-center leading-tight font-medium text-white hover:bg-ink lg:size-36`}
           >
             {t.header.loadCV}
           </a>
-          <ul className="flex flex-wrap gap-x-5">
-            {contacts.map((contact) => (
-              <li key={contact.href}>
-                <a
-                  href={contact.href}
-                  className={`${focusRing} link inline-flex min-h-11 items-center text-sm`}
-                  {...(contact.href.startsWith('http') && { target: '_blank', rel: 'noreferrer' })}
-                >
-                  {contact.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
-      </Row>
-
-      <Row>
-        <Timeline />
-      </Row>
+      </div>
     </section>
   )
 }

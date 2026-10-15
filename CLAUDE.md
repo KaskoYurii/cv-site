@@ -27,18 +27,19 @@ For any UI, visual, layout, or motion change, always load **all** of the design 
 - `animation-vocabulary`
 - `vercel-react-view-transitions`
 
-Before writing code, agree on the direction with the user: palette tokens, type, and ASCII wireframes for desktop and mobile. Keep the starfield/black-hole canvas background and the hyperspace preloader.
+Before writing code, agree on the direction with the user: palette tokens, type, and ASCII wireframes for desktop and mobile.
+
+Current direction: agency / Awwwards style, chosen by the user. Light page `#ecedef` with black sections (experience, footer) and one cobalt accent. Unbounded is the display face (uppercase, huge), Onest is for text. Motion: Lenis smooth scroll, the hero name lines slide up from a mask on load, headings `[data-reveal]` once on scroll, the statement words light up via CSS `animation-timeline: view()`, the stack runs as a marquee, and a cursor dot with `mix-blend-difference` follows the mouse. Everything has a reduced-motion fallback in `global.css`.
 
 ## Architecture
 
 - **i18n is hand-rolled.** There is no i18next. [src/lang.ts](src/lang.ts) imports `src/locales/en.json` and `ua.json`, and `useLang()` returns `t` typed from `en.json`. Every key must exist in both files, and any change to the copy must be made in both languages. The language is stored in `localStorage` and defaults to `ua` for `uk*` browsers.
 - **Data outside the locales:**
-  - Job ids, companies, and dates live in [src/components/jobs.ts](src/components/jobs.ts). Their roles and bullets are keyed by job id under `experience` in the locale files. `Timeline` and `WorkExperience` both read from `jobs.ts`. The Timeline's month axis starts at the last (oldest) job's start date, so keep the list ordered newest first.
+  - Job ids, companies, and dates live in [src/components/jobs.ts](src/components/jobs.ts), ongoing first, then newest first. Their roles and bullets are keyed by job id under `experience` in the locale files.
   - The stack list is a plain array in [src/components/TechStack.tsx](src/components/TechStack.tsx), and the hero contacts are an array in [src/components/HeroSection.tsx](src/components/HeroSection.tsx).
-- **Page grid.** The layout snaps to a 4-column grid on phones and a 12-column grid from `lg`. `Row` in [src/components/Section.tsx](src/components/Section.tsx) provides it, along with the shared `focusRing` and `SectionTitle`. The faint grid lines are rendered in [src/App.tsx](src/App.tsx).
-- **Theme tokens** (`ink`, `ink-soft`, `rule`, `flare`, Fixel fonts) are defined in `@theme` in [src/styles/global.css](src/styles/global.css). The site is dark only. The Fixel fonts are self-hosted in `public/fonts`.
-- **Intro sequencing.** On the first visit in a session, the hyperspace preloader ([src/lib/hyperspacePreloader.ts](src/lib/hyperspacePreloader.ts)) runs, and the content entrance waits for it through the `--intro-delay` CSS var, which is set in `App.tsx`. Elements with the `.rise` class stagger by `--i`.
-- **Canvas effects.** The canvas logic lives in `src/lib/` and is wrapped by thin components (`AnimatedBackground`, `SitePreloader`).
+- **Shared UI.** `focusRing` and `SectionTitle` live in [src/components/Section.tsx](src/components/Section.tsx).
+- **Theme tokens** (`page`, `ink`, `muted`, `rule`, `accent`, `accent-soft`, `font-display`) live in `@theme` in [src/styles/global.css](src/styles/global.css). There is one color scheme.
+- **App-level effects.** [src/App.tsx](src/App.tsx) starts Lenis (skipped under reduced motion) and the IntersectionObserver that adds `.is-in` to `[data-reveal]` elements.
 - **GitHub graph.** It fetches from the third-party `github-contributions-api.jogruber.de` at runtime.
 - **Path alias.** `@/` maps to `src/`.
 

@@ -1,4 +1,3 @@
-import { Row, SectionTitle } from '@/components/Section'
 import { useLang } from '@/lang'
 
 const items = [
@@ -9,26 +8,31 @@ const items = [
   'Codex',
 ]
 
+function List(props: { hidden?: boolean }) {
+  return (
+    <ul className="flex shrink-0 items-center gap-x-10 gap-y-4 pr-10" aria-hidden={props.hidden}>
+      {items.map((item) => (
+        <li key={item} className="flex items-center gap-10 whitespace-nowrap">
+          {item}
+          <span className="size-3 rounded-full bg-accent" aria-hidden="true" />
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 export function TechStack() {
   const { t } = useLang()
 
   return (
-    <section>
-      <Row>
-        <div className="col-span-4 lg:col-span-12">
-          <SectionTitle id="stack">{t.stack.title}</SectionTitle>
-        </div>
-      </Row>
-      <Row className="border-t-0">
-        {items.map((item, i) => (
-          <p
-            key={item}
-            className={`col-span-2 border-t border-rule px-5 py-4 text-lg font-medium lg:col-span-3 ${i % 2 ? 'border-l' : ''} ${i % 4 ? 'lg:border-l' : 'lg:border-l-0'}`}
-          >
-            {item}
-          </p>
-        ))}
-      </Row>
+    <section aria-labelledby="stack" className="scroll-mt-24 overflow-hidden border-y border-ink py-6 lg:py-8">
+      <h2 id="stack" className="sr-only">
+        {t.stack.title}
+      </h2>
+      <div className="marquee flex w-max font-display text-4xl font-semibold tracking-tight uppercase lg:text-7xl">
+        <List />
+        <List hidden />
+      </div>
     </section>
   )
 }

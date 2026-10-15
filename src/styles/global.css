@@ -1,54 +1,21 @@
 @import "tailwindcss";
-
-@font-face {
-  font-family: "Fixel Display";
-  src: url("/fonts/FixelDisplay-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Fixel Display";
-  src: url("/fonts/FixelDisplay-ExtraBold.woff2") format("woff2");
-  font-weight: 800;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Fixel Text";
-  src: url("/fonts/FixelText-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Fixel Text";
-  src: url("/fonts/FixelText-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Fixel Text";
-  src: url("/fonts/FixelText-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-display: swap;
-}
+@import "lenis/dist/lenis.css";
 
 @theme {
-  --font-sans: "Fixel Text", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fixel Display", "Fixel Text", ui-sans-serif, system-ui, sans-serif;
-  --color-ink: #f2f0ea;
-  --color-ink-soft: #a29f98;
-  --color-ink-faint: #6b6963;
-  --color-rule: rgb(255 255 255 / 0.14);
-  --color-grid: rgb(255 255 255 / 0.06);
-  --color-flare: #ff5b00;
+  --font-sans: "Onest", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", "Onest", ui-sans-serif, sans-serif;
+  --color-page: #ecedef;
+  --color-ink: #000000;
+  --color-muted: #55585e;
+  --color-rule: rgb(0 0 0 / 0.14);
+  /* Cobalt on the light page; the lighter tint is for text on the black section. */
+  --color-accent: #2f3cff;
+  --color-accent-soft: #9ea4ff;
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 :root {
-  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -57,52 +24,14 @@
 
 body {
   min-width: 320px;
-  min-height: 100dvh;
-  background: #000;
+  background: var(--color-page);
   color: var(--color-ink);
-  font-variant-numeric: tabular-nums;
+  font-size: 1.0625rem;
 }
 
-/* The page grid: 4 columns on phones, 12 from lg. Every block snaps to it. */
-
-.grid-lines {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  pointer-events: none;
-  animation: fade 900ms ease both;
-  animation-delay: var(--intro-delay, 0ms);
-}
-
-.grid-lines > span {
-  border-left: 1px solid var(--color-grid);
-}
-
-.grid-lines > span:nth-child(n + 5) {
-  display: none;
-}
-
-.grid-lines > span:nth-child(4) {
-  border-right: 1px solid var(--color-grid);
-}
-
-@media (width >= 64rem) {
-  .grid-lines {
-    grid-template-columns: repeat(12, 1fr);
-  }
-
-  .grid-lines > span:nth-child(n + 5) {
-    display: block;
-  }
-
-  .grid-lines > span:nth-child(4) {
-    border-right: 0;
-  }
-
-  .grid-lines > span:nth-child(12) {
-    border-right: 1px solid var(--color-grid);
-  }
+::selection {
+  background: var(--color-accent);
+  color: #fff;
 }
 
 /* Interaction (Emil): press feedback, hover only on real pointers, exact properties */
@@ -110,9 +39,9 @@ body {
 .press {
   transition:
     transform 160ms var(--ease-out-strong),
-    background-color 150ms ease,
-    color 150ms ease,
-    border-color 150ms ease;
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
 }
 
 .press:active {
@@ -120,38 +49,99 @@ body {
 }
 
 .link {
-  text-decoration: underline;
-  text-decoration-color: var(--color-ink-faint);
-  text-underline-offset: 0.3em;
-  transition: text-decoration-color 150ms ease, color 150ms ease;
+  background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat;
+  transition: background-size 300ms var(--ease-out-strong);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .link:hover {
-    text-decoration-color: var(--color-flare);
+    background-size: 100% 1px;
   }
 }
 
-/* One entrance after the preloader: grid fades, text rises, bars grow. */
+/* Hero: each line of the name slides up from behind a mask, once, on load. */
 
-.rise {
-  animation: rise 800ms var(--ease-out-strong) both;
-  animation-delay: calc(var(--intro-delay, 0ms) + var(--i, 0) * 60ms);
+.mask-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
 }
 
-.bar {
-  transform-origin: left;
-  animation: grow 700ms var(--ease-out-strong) both;
-  animation-delay: calc(var(--intro-delay, 0ms) + 360ms + var(--i, 0) * 60ms);
+.mask-line > span {
+  display: block;
+  animation: line-up 1100ms var(--ease-out-strong) both;
+  animation-delay: calc(150ms + var(--i, 0) * 110ms);
 }
 
-.live::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: inherit;
-  border: 1px solid var(--color-flare);
-  animation: ping 2s var(--ease-out-strong) infinite;
+.fade-in {
+  animation: fade 900ms ease both;
+  animation-delay: calc(500ms + var(--i, 0) * 90ms);
+}
+
+/* Headings reveal once when they scroll into view (App adds .is-in). */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(48px);
+  transition:
+    opacity 900ms ease,
+    transform 1100ms var(--ease-out-strong);
+}
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* The statement lights up word by word as it crosses the viewport. */
+
+@supports (animation-timeline: view()) {
+  .scrub-word {
+    animation: word-in linear both;
+    animation-timeline: view();
+    animation-range: entry 30% cover 50%;
+  }
+}
+
+/* Stack marquee: two copies of the list, the track moves by one copy. */
+
+.marquee {
+  animation: marquee 38s linear infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Experience accordion: grid rows animate from 0fr to 1fr. */
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms var(--ease-in-out-strong);
+}
+
+.panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.cursor {
+  transition:
+    width 250ms var(--ease-out-strong),
+    height 250ms var(--ease-out-strong);
+}
+
+.cursor[data-hover="true"] {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
 }
 
 @keyframes fade {
@@ -160,114 +150,54 @@ body {
   }
 }
 
-@keyframes rise {
+@keyframes word-in {
   from {
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 0.15;
   }
 }
 
-@keyframes grow {
-  from {
-    transform: scaleX(0);
-  }
-}
-
-@keyframes ping {
-  from {
-    transform: scale(0.6);
-    opacity: 0.9;
-  }
-
+@keyframes marquee {
   to {
-    transform: scale(1.8);
-    opacity: 0;
+    transform: translateX(-50%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rise,
-  .bar {
-    animation-name: fade;
-    animation-duration: 300ms;
+  .mask-line > span,
+  .fade-in {
+    animation: fade 300ms ease both;
   }
 
-  .live::after {
-    animation: none;
-    opacity: 0.6;
-  }
-
-  .press:active {
+  [data-reveal] {
+    opacity: 1;
     transform: none;
   }
-}
 
-/* Preloader */
-
-.preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  overflow: hidden;
-  background: #000;
-  pointer-events: none;
-  animation: intro-fade-out 5.4s ease forwards;
-}
-
-.preloader__canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.preloader__flash {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle,
-    rgb(255 255 255) 0%,
-    rgb(255 190 130 / 0.8) 18%,
-    rgb(0 0 0 / 0) 55%
-  );
-  opacity: 0;
-  animation: jump-flash 5.4s ease forwards;
-}
-
-@keyframes intro-fade-out {
-  0%,
-  82% {
-    opacity: 1;
-    visibility: visible;
+  .scrub-word {
+    animation: none;
   }
 
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@keyframes jump-flash {
-  0%,
-  68% {
-    opacity: 0;
+  /* No movement: show the first copy of the stack as a wrapped list. */
+  .marquee {
+    animation: none;
+    width: auto;
   }
 
-  76% {
-    opacity: 1;
+  .marquee > ul {
+    flex-wrap: wrap;
   }
 
-  88% {
-    opacity: 0.2;
+  .marquee > ul + ul {
+    display: none;
   }
 
-  100% {
-    opacity: 0;
+  .panel,
+  .press:active {
+    transition: none;
+    transform: none;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .preloader,
-  .preloader__flash {
-    animation-duration: 300ms;
+  .cursor {
+    display: none;
   }
 }

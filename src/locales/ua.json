@@ -1,6 +1,5 @@
 {
   "nav": {
-    "about": "Про мене",
     "experience": "Досвід",
     "stack": "Стек",
     "github": "GitHub"
@@ -11,26 +10,11 @@
   },
   "hero": {
     "role": "Front-end інженер",
-    "facts": [
-      [
-        "Локація",
-        "Україна"
-      ],
-      [
-        "Досвід",
-        "4+ роки"
-      ],
-      [
-        "Основний стек",
-        "Vue 3, React, TypeScript"
-      ]
-    ],
-    "description": "Будую інтерфейси для складних веб-продуктів на Vue 3, React і TypeScript: від системи компонентів до frontend-архітектури.",
+    "description": "Будую інтерфейси для складних веб-продуктів на Vue 3, React і TypeScript: від системи компонентів до frontend-архітектури.",
     "experience": "4+ роки в продакшені: міграції з Vue 2 на 3, проєкти, які вів сам від початку до релізу, AI-assisted розробка з ретельним review.",
     "country": "Україна"
   },
   "timeline": {
-    "title": "Де працював, по місяцях",
     "present": "зараз",
     "current": "триває"
   },
@@ -46,7 +30,7 @@
   },
   "footer": {
     "rights": "© {{year}} Юрій Касько",
-    "builtWith": "Створено з React, TypeScript та Tailwind CSS. Шрифт: Fixel від MacPaw."
+    "builtWith": "Створено з React, TypeScript та Tailwind CSS. Шрифти: Unbounded і Onest."
   },
   "experience": {
     "title": "Досвід",

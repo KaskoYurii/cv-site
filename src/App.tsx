@@ -1,45 +1,60 @@
-import { useEffect, useState, type CSSProperties } from 'react'
-import { AnimatedBackground } from '@/components/AnimatedBackground'
+import { useEffect, useState } from 'react'
+import Lenis from 'lenis'
+import { Cursor } from '@/components/Cursor'
 import { GitHubActivity } from '@/components/GitHubActivity'
 import { HeroSection } from '@/components/HeroSection'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
-import { SitePreloader } from '@/components/SitePreloader'
+import { Statement } from '@/components/Statement'
 import { TechStack } from '@/components/TechStack'
 import { WorkExperience } from '@/components/WorkExperience'
 import { initialLang, LangContext } from '@/lang'
-import { preloaderDuration, preloaderSessionKey } from '@/lib/hyperspacePreloader'
 
-// The entrance waits for the preloader to start fading (82% of its run) on first visit.
-const introDelay = sessionStorage.getItem(preloaderSessionKey) ? 0 : preloaderDuration * 0.82
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export function App() {
   const [lang, setLang] = useState(initialLang)
 
   useEffect(() => localStorage.setItem('lang', lang), [lang])
 
+  // Smooth, inertial scroll; anchors glide too. Skipped under reduced motion.
+  useEffect(() => {
+    if (reducedMotion) {
+      return
+    }
+    const lenis = new Lenis({ anchors: true, autoRaf: true })
+    return () => lenis.destroy()
+  }, [])
+
+  // Reveal [data-reveal] blocks once as they enter the viewport.
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in')
+            observer.unobserve(entry.target)
+          }
+        }
+      },
+      { rootMargin: '0px 0px -12% 0px' },
+    )
+    document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <LangContext value={[lang, setLang]}>
-      <SitePreloader />
-      <AnimatedBackground />
-      <div
-        className="relative z-10 mx-auto max-w-7xl"
-        style={{ '--intro-delay': `${introDelay}ms` } as CSSProperties}
-      >
-        <div className="grid-lines" aria-hidden="true">
-          {Array.from({ length: 12 }, (_, i) => (
-            <span key={i} />
-          ))}
-        </div>
-        <SiteHeader />
-        <main>
-          <HeroSection />
-          <WorkExperience />
-          <TechStack />
-          <GitHubActivity />
-        </main>
-        <SiteFooter />
-      </div>
+      <Cursor />
+      <SiteHeader />
+      <main>
+        <HeroSection />
+        <TechStack />
+        <Statement />
+        <WorkExperience />
+        <GitHubActivity />
+      </main>
+      <SiteFooter />
     </LangContext>
   )
 }

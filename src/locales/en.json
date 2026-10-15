@@ -1,6 +1,5 @@
 {
   "nav": {
-    "about": "About",
     "experience": "Experience",
     "stack": "Stack",
     "github": "GitHub"
@@ -11,26 +10,11 @@
   },
   "hero": {
     "role": "Front-end engineer",
-    "facts": [
-      [
-        "Based in",
-        "Ukraine"
-      ],
-      [
-        "Experience",
-        "4+ years"
-      ],
-      [
-        "Main stack",
-        "Vue 3, React, TypeScript"
-      ]
-    ],
-    "description": "I build interfaces for complex web products with Vue 3, React, and TypeScript, from component systems to frontend architecture.",
+    "description": "I build interfaces for complex web products with Vue 3, React, and TypeScript, from component systems to frontend architecture.",
     "experience": "4+ years in production: Vue 2 to 3 migrations, solo projects delivered end to end, AI-assisted development with careful review.",
     "country": "Ukraine"
   },
   "timeline": {
-    "title": "Where I worked, by month",
     "present": "now",
     "current": "current"
   },
@@ -46,7 +30,7 @@
   },
   "footer": {
     "rights": "© {{year}} Yurii Kasko",
-    "builtWith": "Built with React, TypeScript, and Tailwind CSS. Typeface: Fixel by MacPaw."
+    "builtWith": "Built with React, TypeScript, and Tailwind CSS. Typefaces: Unbounded and Onest."
   },
   "experience": {
     "title": "Experience",

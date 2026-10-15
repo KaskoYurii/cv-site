@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Row, SectionTitle } from '@/components/Section'
+import { SectionTitle } from '@/components/Section'
 import { useLang } from '@/lang'
 
 type GitHubContribution = {
@@ -14,7 +14,13 @@ type ContributionDay = GitHubContribution & {
 
 const contributionsUrl = 'https://github-contributions-api.jogruber.de/v4/KaskoYurii?y=last'
 const monthFormatter = new Intl.DateTimeFormat('en', { month: 'short' })
-const levelColors = ['rgb(255 255 255 / 0.08)', 'rgb(255 91 0 / 0.3)', 'rgb(255 91 0 / 0.55)', 'rgb(255 91 0 / 0.8)', '#ff5b00']
+const levelColors = [
+  'rgb(0 0 0 / 0.07)',
+  'rgb(47 60 255 / 0.3)',
+  'rgb(47 60 255 / 0.55)',
+  'rgb(47 60 255 / 0.8)',
+  '#2f3cff',
+]
 
 function toDateKey(date: Date) {
   return date.toISOString().slice(0, 10)
@@ -111,58 +117,50 @@ export function GitHubActivity() {
   }, [])
 
   return (
-    <section>
-      <Row>
-        <div className="col-span-4 lg:col-span-12">
-          <SectionTitle id="github">{t.github.title}</SectionTitle>
-        </div>
-      </Row>
-      <Row>
-        <div className="col-span-4 px-5 py-8 lg:col-span-3 lg:py-10">
-          <p className="font-display text-5xl font-extrabold tracking-tight lg:text-6xl">
-            {total === null ? '…' : total.toLocaleString()}
-          </p>
-          <p className="mt-2 text-ink-soft">{t.github.lastYear}</p>
-          {hasError ? <p className="mt-4 text-sm text-ink-soft">{t.github.error}</p> : null}
-        </div>
+    <section className="px-5 py-32 lg:px-10 lg:py-44">
+      <SectionTitle id="github">{t.github.title}</SectionTitle>
+      <p className="mt-10 flex flex-wrap items-baseline gap-x-4" data-reveal>
+        <span className="font-display text-6xl font-bold tracking-tighter tabular-nums lg:text-8xl">
+          {total === null ? '…' : total.toLocaleString()}
+        </span>
+        <span className="text-lg text-muted">{t.github.lastYear}</span>
+      </p>
+      {hasError ? <p className="mt-4 text-muted">{t.github.error}</p> : null}
 
-        <div className="col-span-4 border-t border-rule px-5 py-8 lg:col-span-9 lg:border-t-0 lg:border-l lg:py-10">
-          <div className="overflow-x-auto pb-2">
-            <div className="min-w-[46rem]">
-              <div
-                className="grid gap-[3px] text-xs text-ink-faint"
-                style={{ gridTemplateColumns: `repeat(${Math.max(weeks.length, 53)}, 12px)` }}
-              >
-                {weeks.map((week, index) => (
-                  <span key={week[0].date} className="min-w-0 whitespace-nowrap">
-                    {getMonthLabel(week, weeks[index - 1])}
-                  </span>
-                ))}
-              </div>
-              <div
-                className="mt-2 grid grid-flow-col grid-rows-7 gap-[3px]"
-                style={{ gridTemplateColumns: `repeat(${Math.max(weeks.length, 53)}, 12px)` }}
-              >
-                {weeks.flat().map((day) => (
-                  <span
-                    key={day.date}
-                    title={`${day.count} contributions on ${day.date}`}
-                    className="size-[12px] rounded-[3px]"
-                    style={{ backgroundColor: levelColors[day.level], opacity: day.isOutsideRange ? 0 : 1 }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-          <p className="mt-4 flex items-center gap-1.5 text-xs text-ink-faint">
-            <span className="mr-1">{t.github.less}</span>
-            {levelColors.map((color) => (
-              <span key={color} className="size-[12px] rounded-[3px]" style={{ backgroundColor: color }} />
+      <div className="mt-12 overflow-x-auto">
+        <div className="min-w-[46rem]">
+          <div
+            className="grid gap-[3px] text-xs text-muted"
+            style={{ gridTemplateColumns: `repeat(${Math.max(weeks.length, 53)}, minmax(0, 1fr))` }}
+          >
+            {weeks.map((week, index) => (
+              <span key={week[0].date} className="min-w-0 whitespace-nowrap">
+                {getMonthLabel(week, weeks[index - 1])}
+              </span>
             ))}
-            <span className="ml-1">{t.github.more}</span>
-          </p>
+          </div>
+          <div
+            className="mt-2 grid grid-flow-col grid-rows-7 gap-[3px]"
+            style={{ gridTemplateColumns: `repeat(${Math.max(weeks.length, 53)}, minmax(0, 1fr))` }}
+          >
+            {weeks.flat().map((day) => (
+              <span
+                key={day.date}
+                title={`${day.count} contributions on ${day.date}`}
+                className="aspect-square rounded-[3px]"
+                style={{ backgroundColor: levelColors[day.level], opacity: day.isOutsideRange ? 0 : 1 }}
+              />
+            ))}
+          </div>
         </div>
-      </Row>
+      </div>
+      <p className="mt-4 flex items-center gap-1.5 text-xs text-muted">
+        <span className="mr-1">{t.github.less}</span>
+        {levelColors.map((color) => (
+          <span key={color} className="size-[12px] rounded-[3px]" style={{ backgroundColor: color }} />
+        ))}
+        <span className="ml-1">{t.github.more}</span>
+      </p>
     </section>
   )
 }
