@@ -1,8 +1,7 @@
 {
   "nav": {
     "experience": "Досвід",
-    "stack": "Стек",
-    "github": "GitHub"
+    "stack": "Стек"
   },
   "header": {
     "loadCV": "Завантажити CV",

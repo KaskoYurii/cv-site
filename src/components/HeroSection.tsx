@@ -12,7 +12,7 @@ export function HeroSection() {
     <section id="about" className="flex min-h-dvh flex-col justify-end px-5 pt-28 pb-10 lg:px-10 lg:pb-14">
       <h1
         aria-label="Yurii Kasko"
-        className="font-display text-[clamp(4.25rem,19.5vw,22rem)] leading-[0.84] font-bold tracking-tighter uppercase"
+        className="font-display text-[clamp(4.25rem,min(19.5vw,27dvh),22rem)] leading-[0.84] font-bold tracking-tighter uppercase"
       >
         <span className="mask-line" aria-hidden="true">
           <span style={step(0)}>Yurii</span>

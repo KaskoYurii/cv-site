@@ -1,8 +1,7 @@
 {
   "nav": {
     "experience": "Experience",
-    "stack": "Stack",
-    "github": "GitHub"
+    "stack": "Stack"
   },
   "header": {
     "loadCV": "Download CV",

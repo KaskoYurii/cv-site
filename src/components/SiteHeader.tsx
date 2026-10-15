@@ -2,7 +2,7 @@ import { focusRing } from '@/components/Section'
 import { useLang } from '@/lang'
 
 export const cvHref = '/CV-Yurii_kasko.pdf'
-const sections = ['experience', 'stack', 'github'] as const
+const sections = ['experience', 'stack'] as const
 
 // White + difference blending keeps the bar legible over the light page and the black section.
 export function SiteHeader() {
