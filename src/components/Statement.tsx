@@ -4,8 +4,8 @@ export function Statement() {
   const { t } = useLang()
 
   return (
-    <section className="px-5 py-32 lg:px-10 lg:py-48">
-      <p className="max-w-[22ch] text-[clamp(2rem,5.2vw,4.75rem)] leading-[1.08] font-semibold tracking-[-0.03em]">
+    <section className="px-5 py-24 lg:px-10 lg:py-32">
+      <p className="max-w-[18ch] font-display text-[clamp(2.25rem,6.5vw,6.5rem)] leading-[0.98] font-semibold tracking-[-0.04em]">
         {t.hero.experience.split(' ').map((word, i) => (
           <span key={i} className="scrub-word">
             {word}{' '}

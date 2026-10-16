@@ -45,11 +45,22 @@ export function WorkExperience() {
               <div id={`${job.id}-panel`} className="panel" data-open={isOpen}>
                 <div className="overflow-hidden" inert={!isOpen}>
                   <div className="grid gap-6 pb-10 lg:grid-cols-12">
-                    <p className="text-white/60 lg:col-span-3">
-                      {t.experience.roles[job.id]}
-                      <br />
-                      {job.id === 'nsoc360' ? t.experience.netherlands : t.hero.country}
-                    </p>
+                    <div className="lg:col-span-3">
+                      <p className="text-white/60">
+                        {t.experience.roles[job.id]}
+                        <br />
+                        {job.id === 'nsoc360' ? t.experience.netherlands : t.hero.country}
+                      </p>
+                      {job.stack.length > 0 && (
+                        <ul className="mt-5 flex flex-wrap gap-1.5" aria-label={t.experience.stack}>
+                          {job.stack.map((tech) => (
+                            <li key={tech} className="rounded-full border border-white/25 px-2.5 py-0.5 text-sm">
+                              {tech}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                     <ul className="grid gap-x-10 gap-y-4 text-lg leading-7 lg:col-span-8 lg:col-start-4 lg:grid-cols-2">
                       {t.experience.summaries[job.id].map((item) => (
                         <li key={item} className="border-t border-white/15 pt-4">

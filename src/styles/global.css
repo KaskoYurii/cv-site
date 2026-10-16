@@ -140,7 +140,7 @@ body {
 /* Stack marquee: two copies of the list, the track moves by one copy. */
 
 .marquee {
-  animation: marquee 38s linear infinite;
+  animation: marquee 55s linear infinite;
 }
 
 @media (hover: hover) and (pointer: fine) {

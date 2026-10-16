@@ -3,6 +3,7 @@ import Lenis from 'lenis'
 import { Cursor } from '@/components/Cursor'
 import { GitHubActivity } from '@/components/GitHubActivity'
 import { HeroSection } from '@/components/HeroSection'
+import { Projects } from '@/components/Projects'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 import { Statement } from '@/components/Statement'
@@ -51,6 +52,7 @@ export function App() {
         <HeroSection />
         <TechStack />
         <Statement />
+        <Projects />
         <WorkExperience />
         <GitHubActivity />
       </main>

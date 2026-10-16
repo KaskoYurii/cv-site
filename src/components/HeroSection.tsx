@@ -23,11 +23,17 @@ export function HeroSection() {
       </h1>
 
       <div className="mt-10 grid items-end gap-8 lg:mt-14 lg:grid-cols-12">
-        <p className="fade-in text-lg text-muted lg:col-span-3" style={step(0)}>
-          {t.hero.role}
-          <br />
-          {t.hero.country}
-        </p>
+        <div className="fade-in lg:col-span-3" style={step(0)}>
+          <p className="text-lg text-muted">
+            {t.hero.role}
+            <br />
+            {t.hero.country}
+          </p>
+          <p className="mt-4 flex max-w-xs items-start gap-2.5 text-sm leading-5 font-medium">
+            <span className="mt-1.5 size-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+            {t.hero.status}
+          </p>
+        </div>
         <p
           className="fade-in max-w-[30ch] text-2xl leading-tight font-medium tracking-tight text-balance lg:col-span-6 lg:text-[2rem]"
           style={step(1)}
