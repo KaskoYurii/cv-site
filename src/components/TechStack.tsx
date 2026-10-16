@@ -3,7 +3,7 @@ import { useLang } from '@/lang'
 const items = [
   'Vue 3', 'Nuxt', 'React', 'Next.js', 'TypeScript',
   'Pinia', 'Vuex', 'Vuetify', 'Quasar', 'Tailwind CSS',
-  'TanStack Query', 'Chart.js', 'AmCharts', 'Node.js', 'PostgreSQL',
+  'TanStack Query', 'Chart.js', 'AmCharts', 'WebSocket', 'Node.js', 'PostgreSQL',
   'Supabase', 'Vite', 'Vitest', 'Docker', 'Git',
   'CI/CD', 'Figma', 'Cursor', 'Claude Code', 'Codex',
 ]
