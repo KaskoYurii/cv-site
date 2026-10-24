@@ -2,28 +2,24 @@ import { focusRing, SectionTitle } from '@/components/Section'
 import { useLang } from '@/lang'
 
 // Texts (name, role, one-line summary, achievements) live under projects.items.<id> in the locales.
-// `image` is 1200×750 in public/projects: a screenshot, or a drawn illustration when the
-// product has no presentable UI yet (`illustration: true` changes the alt text).
+// `image` is a 1200×750 screenshot in public/projects.
 const projects = [
   {
     id: 'unifiedone',
     url: 'https://app.unifiedone.com/signup',
     image: '/projects/unifiedone.jpg',
-    illustration: false,
     stack: ['Vue', 'Vuetify', 'Docker'],
   },
   {
     id: 'autoservice',
-    url: null,
+    url: 'https://repair-service-admin.vercel.app/',
     image: '/projects/autoservice.jpg',
-    illustration: true,
     stack: ['Vue 3', 'Vuetify', 'Pinia', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'WebSocket', 'Docker'],
   },
   {
     id: 'vibewaller',
     url: 'https://app.vibewaller.xyz/',
     image: '/projects/vibewaller.jpg',
-    illustration: false,
     stack: ['Vue 3', 'TypeScript', 'Tailwind CSS', 'Chart.js', 'TanStack Query', 'Supabase', 'Vitest', 'Docker'],
   },
 ] as const
@@ -42,7 +38,7 @@ export function Projects() {
           const visual = (
             <img
               src={project.image}
-              alt={`${project.illustration ? t.projects.illustration : t.projects.shot} ${text.name}`}
+              alt={`${t.projects.shot} ${text.name}`}
               width={1200}
               height={750}
               loading="lazy"

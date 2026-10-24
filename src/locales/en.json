@@ -54,8 +54,7 @@
           "Realtime sync and per-user data protection with Supabase RLS"
         ]
       }
-    },
-    "illustration": "Illustration of"
+    }
   },
   "github": {
     "title": "GitHub",
