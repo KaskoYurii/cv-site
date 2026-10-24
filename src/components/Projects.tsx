@@ -78,6 +78,7 @@ export function Projects() {
                     </li>
                   ))}
                 </ul>
+                {'note' in text && <p className="mt-5 max-w-[55ch] text-sm leading-5 text-muted">{text.note}</p>}
                 {project.url && (
                   <a href={project.url} target="_blank" rel="noreferrer" className={`${focusRing} link mt-4 inline-flex min-h-11 items-center text-muted`}>
                     {domain(project.url)}
