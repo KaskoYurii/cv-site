@@ -28,7 +28,7 @@
       .page {
         width: 210mm;
         min-height: 297mm;
-        padding: 14mm 15mm 12mm;
+        padding: 11mm 15mm 9mm;
       }
 
       header {
@@ -84,7 +84,7 @@
 
       .skills {
         display: grid;
-        grid-template-columns: 72px 1fr;
+        grid-template-columns: 78px 1fr;
         gap: 4px 10px;
         font-size: 9pt;
       }
@@ -131,6 +131,16 @@
         margin: 4px 0 0 14px;
       }
 
+      ul.flush {
+        margin-top: 0;
+      }
+
+      .stackline {
+        margin-top: 2px;
+        color: #475569;
+        font-size: 9pt;
+      }
+
       li {
         margin-bottom: 2px;
         color: #1e293b;
@@ -148,10 +158,11 @@
       <header>
         <div>
           <h1>Yurii Kasko</h1>
-          <p class="role">Front-End Engineer</p>
+          <p class="role">AI-First Frontend Engineer</p>
+          <p class="stackline">Vue 3 · Nuxt · TypeScript · React-ready</p>
         </div>
         <div class="contacts">
-          <div>Ukraine · Remote</div>
+          <div>Kharkiv, Ukraine · Remote</div>
           <div><a href="mailto:hellokasko@gmail.com">hellokasko@gmail.com</a></div>
           <div><a href="https://t.me/whoisyurii">t.me/whoisyurii</a></div>
           <div><a href="https://www.linkedin.com/in/yurii-kasko/">linkedin.com/in/yurii-kasko</a></div>
@@ -162,23 +173,36 @@
 
       <h2>Summary</h2>
       <p class="summary">
-        Vue.js front-end engineer with 5+ years building production web products.
-        Strong in Vue 3, TypeScript, Pinia, reusable component systems, and frontend architecture.
-        Experience with independent delivery, Vue 2→3 / Vuex→Pinia migrations, EU remote collaboration,
-        and AI-assisted workflows with a clear production review bar.
+        AI-first Frontend Engineer with 5 years of commercial experience shipping production web apps
+        with Vue 3, Nuxt and TypeScript. AI coding agents (Claude Code, Cursor, Codex) are part of how I deliver
+        every day: I plan the work, set architecture and constraints, let agents generate code, and own the review,
+        testing and quality of every merge. 90% of my projects were in Vue, and I'm comfortable taking on
+        React / Next.js. Growing toward full-stack product engineering.
       </p>
 
       <h2>Skills</h2>
       <dl class="skills">
         <dt>Core</dt>
-        <dd>Vue 2/3, TypeScript, JavaScript, Pinia, Vuex, Vite, Vue Router</dd>
+        <dd>Vue 2/3, Nuxt, TypeScript, JavaScript, Pinia, Vuex, Vite, Vue Router</dd>
         <dt>UI</dt>
         <dd>Vuetify, Quasar, Tailwind CSS, Figma, Chart.js, AmCharts</dd>
+        <dt>Data</dt>
+        <dd>REST APIs, WebSockets</dd>
         <dt>Quality</dt>
-        <dd>Vitest, Git, Docker, CI/CD, performance, responsive UI</dd>
+        <dd>Vitest, Git, Docker, CI/CD, Jira &amp; Confluence, performance, responsive UI</dd>
         <dt>AI</dt>
-        <dd>Cursor, Claude Code, Codex — daily AI-assisted delivery + code review</dd>
+        <dd>Claude Code, Cursor, Codex, prompt engineering</dd>
+        <dt>Languages</dt>
+        <dd>Ukrainian (native), English (B1, intermediate)</dd>
       </dl>
+
+      <h2>How I work with AI</h2>
+      <ul class="flush">
+        <li>Turn features into clear specs and tasks that agents can execute reliably.</li>
+        <li>Maintain project context and rules (component conventions, state patterns, API contracts) so generated code stays consistent.</li>
+        <li>Review every AI change like a teammate's PR: types, edge cases, performance, security.</li>
+        <li>Use agents for tests, refactoring, migrations and boilerplate; my time goes to architecture and product logic.</li>
+      </ul>
 
       <h2>Experience</h2>
 
@@ -194,6 +218,7 @@
           <li>Designed and maintained scalable frontend architecture across multi-module product UIs.</li>
           <li>Built a reusable component system shared across multiple product modules.</li>
           <li>Integrated Chart.js and AmCharts; improved UI performance, responsiveness, and review quality.</li>
+          <li>Worked closely with backend, QA and product: PR reviews, refactoring, performance improvements.</li>
         </ul>
       </article>
 
@@ -206,8 +231,10 @@
           <div class="period">Sep 2021 – Apr 2025</div>
         </div>
         <ul>
-          <li>Developed UI for a monitoring and analytics product used by an EU client.</li>
-          <li>Worked in a Vue 2/3 hybrid architecture and contributed to migration paths.</li>
+          <li>Developed UI for a security monitoring and analytics product used by an EU client.</li>
+          <li>Built configurable multi-source dashboards: tables, filters, AmCharts charts, permissions, dynamic UI states.</li>
+          <li>Migrated parts of a large Vue 2 codebase to Vue 3 within a Vue 2/3 hybrid architecture.</li>
+          <li>Introduced unit testing with Vitest to improve frontend reliability.</li>
           <li>Implemented and optimized state management with Vuex and Pinia in an agile remote team.</li>
         </ul>
       </article>
@@ -221,7 +248,7 @@
           <div class="period">Jun 2025 – Apr 2026</div>
         </div>
         <ul>
-          <li>Built the frontend from scratch, including architecture and a reusable component system.</li>
+          <li>Built the entire frontend from zero to production (Vue, Vuetify, Pinia, REST APIs, WebSockets), including architecture and a reusable component system.</li>
           <li>Developed custom forms/validation and delivered a production-ready UI independently.</li>
         </ul>
       </article>
@@ -242,7 +269,7 @@
       </article>
 
       <p class="footer-note">
-        Portfolio: kasko-yurii.vercel.app · Open to remote Vue.js / TypeScript roles and contracts.
+        Open to remote AI-first Frontend / Full-stack roles in product companies and startups: full-time, part-time or contract.
       </p>
     </div>
   </body>
