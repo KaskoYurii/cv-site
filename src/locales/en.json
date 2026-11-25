@@ -9,11 +9,11 @@
     "switchLang": "Українська"
   },
   "hero": {
-    "role": "Front-end engineer",
-    "description": "I build interfaces for complex web products with Vue 3, React, and TypeScript, from component systems to frontend architecture.",
-    "experience": "Over 5 years from idea to production.",
+    "role": "Full-stack engineer",
+    "description": "I build web products end to end: React and Vue frontends, Node backends on PostgreSQL, realtime features and integrations.",
+    "experience": "From idea to production.",
     "country": "Ukraine",
-    "status": "Open to remote Vue.js / TypeScript roles and contracts"
+    "status": "Open to remote full-stack and frontend roles and contracts"
   },
   "timeline": {
     "present": "now",
@@ -33,7 +33,7 @@
         "points": [
           "Helped turn the codebase into a unified system of reusable components, making it maintainable and cutting the time spent on new development",
           "Introduced unit testing for more stable code",
-          "Initiated the migration from Vue 2 to Vue 3"
+          "Migrated the app from Vue 2 to Vue 3"
         ]
       },
       "autoservice": {
@@ -44,7 +44,18 @@
           "Helped the business bring all management into one system, from orders to scheduling",
           "Covered the business’s need for auto service management built around its own processes"
         ],
-        "note": "The link opens a separate demo with sample data. The product itself was built for a specific client and isn’t public."
+        "note": "Built for a specific client under NDA, so there is no public link. The Repair Service project below covers the same domain."
+      },
+      "repairservice": {
+        "name": "Repair Service",
+        "role": "Full cycle: frontend and API",
+        "summary": "Multi-tenant SaaS for auto repair shops: companies and branches, a service board with drag and drop, clients, a calendar and realtime updates.",
+        "points": [
+          "Tenant isolation is tested in every module, so one company never sees another’s data",
+          "Permissions are enforced on the server, and the UI only reflects them",
+          "Realtime updates across tabs, with edit-conflict detection on save"
+        ],
+        "note": "The link opens a live demo with sample data."
       },
       "vibewaller": {
         "name": "Vibewaller",
@@ -55,7 +66,8 @@
           "Realtime sync and per-user data protection with Supabase RLS"
         ]
       }
-    }
+    },
+    "nda": "Under NDA"
   },
   "github": {
     "title": "GitHub",
@@ -72,26 +84,28 @@
     "title": "Experience",
     "netherlands": "Netherlands",
     "roles": {
-      "freelance": "Front-end developer",
-      "quardex": "Front-end developer",
-      "nsoc360": "Front-end developer, contract via Quardex",
+      "freelance": "Full-stack developer",
+      "quardex": "Project manager, then front-end developer",
+      "nsoc360": "Front-end developer, full-time at Quardex",
       "nda": "Front-end developer, part-time"
     },
     "summaries": {
       "freelance": [
-        "Built an admin platform for an auto service end to end, frontend and API.",
+        "Built an admin platform for an auto service end to end: Vue 3 frontend, Node and PostgreSQL API with realtime updates.",
         "Brought all of the business’s management into one system, from orders to scheduling.",
-        "Set up Google integration and CI/CD for smoother releases and operations."
+        "Set up Google integration and CI/CD, and covered the system with unit, API and Playwright e2e tests."
       ],
       "quardex": [
-        "Kept a multi-module product UI on one scalable frontend architecture.",
+        "Started as a project manager (Oct 2020 – Sep 2021), learned to code alongside it, then moved into frontend development.",
+        "After the frontend team left, delivered features in React and Strapi for a hosting client.",
+        "Built the company website in Nuxt from the designer’s mockups.",
         "Built a component system shared across modules, so new screens reuse existing UI.",
-        "Turned product data into charts with Chart.js and AmCharts.",
         "Made key pages faster and more responsive, and raised the code review bar."
       ],
       "nsoc360": [
-        "Built UI for a monitoring and analytics product used by an EU client.",
-        "Helped move a hybrid Vue 2 / Vue 3 codebase along its migration to Vue 3.",
+        "Worked only on this client’s product as a Quardex employee: monitoring and analytics used by an EU customer.",
+        "Learned Vue on the live project, then built dashboards with AmCharts, tables, forms and role-based permissions.",
+        "Migrated the app from Vue 2 to Vue 3 on my own and wrote unit tests with Vitest.",
         "Optimized state management on Vuex and Pinia.",
         "Worked with cross-functional teams in an agile remote setup."
       ],

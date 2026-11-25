@@ -12,9 +12,13 @@ const projects = [
   },
   {
     id: 'autoservice',
-    url: 'https://repair-service-admin.vercel.app/',
-    image: '/projects/autoservice.jpg',
     stack: ['Vue 3', 'Vuetify', 'Pinia', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'WebSocket', 'Docker'],
+  },
+  {
+    id: 'repairservice',
+    url: 'https://repair-service-admin.vercel.app/',
+    image: '/projects/repair-service.jpg',
+    stack: ['React 19', 'TypeScript', 'Tailwind CSS', 'TanStack Query', 'Go', 'PostgreSQL', 'Docker', 'Playwright'],
   },
   {
     id: 'vibewaller',
@@ -35,23 +39,29 @@ export function Projects() {
       <ul className="mt-14 space-y-20 lg:mt-20 lg:space-y-28">
         {projects.map((project) => {
           const text = t.projects.items[project.id]
-          const visual = (
-            <img
-              src={project.image}
-              alt={`${t.projects.shot} ${text.name}`}
-              width={1200}
-              height={750}
-              loading="lazy"
-              decoding="async"
-              className="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out-strong group-hover:scale-[1.03]"
-            />
-          )
+          const url = 'url' in project ? project.url : undefined
+          const visual =
+            'image' in project ? (
+              <img
+                src={project.image}
+                alt={`${t.projects.shot} ${text.name}`}
+                width={1200}
+                height={750}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out-strong group-hover:scale-[1.03]"
+              />
+            ) : (
+              <div className="flex aspect-[16/10] w-full items-center justify-center bg-ink font-display text-3xl font-semibold tracking-tight text-white uppercase lg:text-5xl">
+                {t.projects.nda}
+              </div>
+            )
 
           return (
             <li key={project.id} className="grid gap-8 lg:grid-cols-12 lg:gap-10">
               <div className="lg:col-span-7">
-                {project.url ? (
-                  <a href={project.url} target="_blank" rel="noreferrer" className={`${focusRing} group block overflow-hidden rounded-2xl ring-1 ring-rule`}>
+                {url ? (
+                  <a href={url} target="_blank" rel="noreferrer" className={`${focusRing} group block overflow-hidden rounded-2xl ring-1 ring-rule`}>
                     {visual}
                   </a>
                 ) : (
@@ -79,9 +89,9 @@ export function Projects() {
                   ))}
                 </ul>
                 {'note' in text && <p className="mt-5 max-w-[55ch] text-sm leading-5 text-muted">{text.note}</p>}
-                {project.url && (
-                  <a href={project.url} target="_blank" rel="noreferrer" className={`${focusRing} link mt-4 inline-flex min-h-11 items-center text-muted`}>
-                    {domain(project.url)}
+                {url && (
+                  <a href={url} target="_blank" rel="noreferrer" className={`${focusRing} link mt-4 inline-flex min-h-11 items-center text-muted`}>
+                    {domain(url)}
                   </a>
                 )}
               </div>
